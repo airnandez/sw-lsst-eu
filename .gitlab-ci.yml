@@ -1,0 +1,21 @@
+image: gitlab-registry.in2p3.fr/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest
+makedoc:
+  script:
+  # generate html doc (readthedocs like)
+  - mkdir -p /builds/$CI_PROJECT_NAMESPACE/htmloutput
+  - rm -r /builds/$CI_PROJECT_NAMESPACE/htmloutput/* || true
+  # copy conf files to docs folder before build
+  - cp -r /tmp/docs/* /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/
+
+  - sphinx-build -b html /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/ /builds/$CI_PROJECT_NAMESPACE/htmloutput
+  # overwrite theme.css after build
+  - cp /tmp/css/theme.css /builds/$CI_PROJECT_NAMESPACE/htmloutput/_static/css/
+  # check branch name and define output folder
+  - if [ "$CI_BUILD_REF_NAME" == "master" ]; then output_folder=""; else output_folder="preview/$CI_BUILD_REF_NAME/"; fi
+  - echo "Build for $CI_BUILD_REF_NAME" # deprecated in gitlab >= 9.0 => CI_COMMIT_REF_NAME
+  #- echo $WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER$output_folder
+  # create preview folder (if not master)
+  - if [ "$CI_BUILD_REF_NAME" != "master" ]; then sshpass -p $RSYNC_PASSWORD sftp -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no $RSYNC_USER@$WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER <<< $'mkdir preview'; fi
+  - if [ "$CI_BUILD_REF_NAME" != "master" ]; then sshpass -p $RSYNC_PASSWORD sftp -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no $RSYNC_USER@$WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER/preview <<< $'mkdir $CI_BUILD_REF_NAME'; fi
+  # deploy on lsst-docs.in2p3.fr
+  - rsync --rsh="sshpass -p $RSYNC_PASSWORD ssh -l $RSYNC_USER -o StrictHostKeyChecking=no" --recursive --force --delete /builds/$CI_PROJECT_NAMESPACE/htmloutput/ $WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER$output_folder
