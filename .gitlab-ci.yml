@@ -17,5 +17,5 @@ makedoc:
   # create preview folder (if not master)
   - if [ "$CI_BUILD_REF_NAME" != "master" ]; then sshpass -p $RSYNC_PASSWORD sftp -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no $RSYNC_USER@$WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER <<< $'mkdir preview'; fi
   - if [ "$CI_BUILD_REF_NAME" != "master" ]; then sshpass -p $RSYNC_PASSWORD sftp -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no $RSYNC_USER@$WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER/preview <<< $'mkdir $CI_BUILD_REF_NAME'; fi
-  # deploy on lsst-docs.in2p3.fr
+  # deploy on sw.lsst.eu
   - rsync --rsh="sshpass -p $RSYNC_PASSWORD ssh -l $RSYNC_USER -o StrictHostKeyChecking=no" --recursive --force --delete /builds/$CI_PROJECT_NAMESPACE/htmloutput/ $WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER$output_folder
