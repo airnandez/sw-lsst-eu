@@ -11,28 +11,33 @@ In this section you will find information on how to use the online LSST software
 Repository Layout
 =================
 
-The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There you will find a sub-directory per supported platform (i.e. ``darwin-x86_64``, ``linux-x86_64``), a subdirectory for each distribution (e.g. ``lsst_distrib``) and a subdirectory for each available release (e.g. ``v15.0``, ``w_2018_17``). It looks like:
+The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There you will find a sub-directory per supported platform (i.e. ``darwin-x86_64``, ``linux-x86_64``), a subdirectory for each distribution (e.g. ``lsst_distrib``) and a subdirectory for each available release (e.g. ``v15.0``, ``w_2018_19``). It looks like:
 
 .. code-block:: bash
 
-    $ tree -L 3 /cvmfs/sw.lsst.eu/
-    .
+    $ tree -L 3 /cvmfs/sw.lsst.eu
+    /cvmfs/sw.lsst.eu
     |-- darwin-x86_64
     |   `-- lsst_distrib
     |       |-- v15.0
     |       |-- w_2018_14
     |       |-- w_2018_15
     |       |-- w_2018_16
-    |       `-- w_2018_17
+    |       |-- w_2018_17
+    |       |-- w_2018_18
+    |       `-- w_2018_19
     `-- linux-x86_64
         `-- lsst_distrib
             |-- v15.0
             |-- w_2018_14
             |-- w_2018_15
             |-- w_2018_16
-            `-- w_2018_17
+            |-- w_2018_17
+            |-- w_2018_18
+            `-- w_2018_19
 
-Names of directories containing **stable releases** start with letter "v" (e.g. ``v15.0``) and directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_17``). ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the LSST software is built specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
+
+Names of directories containing **stable releases** start with letter "v" (e.g. ``v15.0``) and directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_19``). ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the LSST software is built specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
 
 Each release of the LSST software you will find under ``/cvmfs/sw.lsst.eu``, be it stable or weekly, is mostly self contained: it includes its own EUPS (see below), its own **Python 3** distribution (typically `miniconda <https://www.anaconda.com/download>`_) and its own set of external packages that specific release depends on (e.g. ``numpy``, ``cfitsio``, etc.). In particular, since the Python distribution installed with each release includes its own interpreter, each release is independent and configured so **it does not conflict with other Python interpreter** you may have already installed on your computer.
 
@@ -85,14 +90,14 @@ After these steps, your working environment is modified so that you can use the 
     ...
 
 
-If later on you need to work with a different release, say weekly ``w_2018_17``, **you must create a new terminal session** and configure your environment for the that specific release. For instance:
+If later on you need to work with a different release, say weekly ``w_2018_19``, **you must create a new terminal session** and configure your environment for the that specific release. For instance:
 
 .. code-block:: bash
 
     # In a new terminal session with BASH shell
-    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2018_17/loadLSST.bash
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2018_19/loadLSST.bash
 
-    # From this point on, your environment is set up to use release w_2018_17
+    # From this point on, your environment is set up to use release w_2018_19
 
 At this point you may want to `run the LSST demo <https://pipelines.lsst.io/install/demo.html#download-the-demo-project>`_ and read the tutorials on `how to use the LSST Science Pipelines <https://pipelines.lsst.io/getting-started/index.html#getting-started-tutorials>`_.
 
@@ -102,20 +107,20 @@ Advanced Usage
 
 As presented above, each installed release includes its own miniconda Python distribution with a strict set of packages the LSST science pipelines depend on. For your convenience, a set of packages is added without modifying the dependencies of the LSST software.
 
-You can determine which version of the Python interpreter is used for a given release of the LSST stack and obtain the list of installed packages via the ``conda`` command. For instance, when using ``w_2018_17`` on macOS you get:
+You can determine which version of the Python interpreter is used for a given release of the LSST stack and obtain the list of installed packages via the ``conda`` command. For instance, when using ``w_2018_19`` on macOS you get:
 
 .. code-block:: bash
 
-    $ source /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_17/loadLSST.bash
+    $ source /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_19/loadLSST.bash
 
     $ which python
-    /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_17/python/miniconda3-4.3.21/bin/python
+    /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_19/python/miniconda3-4.3.21/bin/python
 
     $ python --version
     Python 3.6.2 :: Continuum Analytics, Inc.
 
     $ conda list
-    # packages in environment at /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_17/python/miniconda3-4.3.21:
+    # packages in environment at /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_19/python/miniconda3-4.3.21:
     #
     appnope                   0.1.0            py36hf537a9a_0  
     asn1crypto                0.22.0                   py36_0  
