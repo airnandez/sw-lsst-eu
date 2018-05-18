@@ -124,8 +124,8 @@ Install the CernVM-FS client:
 
 .. code-block:: bash 
 
-    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.4.4/cvmfs-2.4.4.pkg
-    open cvmfs-2.4.4.pkg
+    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg
+    open cvmfs-2.5.0.pkg
 
 
 Step 2: Configure the LSST repository
@@ -183,7 +183,7 @@ If you can see the contents of that directory your computer is correctly configu
 
 .. important::
 
-    Please note that on both Linux and macOS **you must mount the file system on the directory** ``/cvmfs/sw.lsst.eu`` because the LSST software is specifically built and packaged to be delivered under this path. The software won't work if relocated under another path.
+    Please note that on both Linux and macOS **you must mount the file system on the directory** ``/cvmfs/sw.lsst.eu`` because the LSST software is specifically built and packaged to be used under this path. The software won't work when relocated under another path.
 
 .. _troubleshooting:
 
