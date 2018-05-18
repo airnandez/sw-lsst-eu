@@ -31,9 +31,9 @@ for out in rpm deb; do
           --depends cvmfs \
           --description "Configuration files for CernVM-FS file system /cvmfs/sw.lsst.eu" \
           --maintainer "Fabio Hernandez (fabio@in2p3.fr)" \
-          --url "http://sw.lsst.eu" \
+          --url "https://sw.lsst.eu" \
           --license "Apache v2.0" \
-          --vendor "CNRS / IN2P3 computing center" \
+          --vendor "CNRS / IN2P3 computing center (CC-IN2P3)" \
           --architecture all \
           --output-type ${out} \
           --input-type dir \
