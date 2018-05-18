@@ -1,14 +1,55 @@
-.. LSST User Guide documentation master file, created by
-   sphinx-quickstart on Thu Feb 23 16:01:53 2017.
+.. sw.lsst.eu documentation master file, created by
+   sphinx-quickstart on Wed Apr 18 17:55:28 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-######################
-LSST-France User Guide
-######################
+****************************************
+LSST software delivered to your computer
+****************************************
 
-Welcome to the LSST-France User Guide. Here you will find supplemental information to the official LSST documentation specifically about the activities of the LSST community in France.
+Here you will can information on how to get a binary distribution of the `Large Synoptic Survey Telescope (LSST) <https://lsst.org>`_ `science pipelines <https://pipelines.lsst.io>`_ to use on your personal computer without installing the software.
 
-.. note::
+As a user of this software distribution service, both **stable and weekly releases** of the LSST software appear as if they were locally installed on your computer. Since **new releases just appear under the local path** ``/cvmfs/sw.lsst.eu`` **without you to take any action**, you can focus on using the software, instead of on the technicalities of installing and updating it regularly.
 
-   This space is a permanent work in progress.
+Visit the :ref:`overview` to get more details on the benefits and intended audience of this service brought to the `LSST community <https://community.lsst.org>`_  by `LSST-France <http://www.lsst.fr>`_ and `CNRS / IN2P3 computing center <https://cc.in2p3.fr>`_ (CC-IN2P3).
+
+.. toctree::
+    :caption: OVERVIEW
+    :maxdepth: 1
+
+    overview
+
+
+.. toctree::
+    :caption: USAGE
+    :maxdepth: 1
+
+    usage
+
+
+.. toctree::
+    :caption: INSTALLATION
+    :maxdepth: 1
+
+    installation
+
+
+.. toctree::
+    :caption: HELP & FEEDBACK
+    :maxdepth: 1
+
+    help
+
+
+.. toctree::
+    :caption: FAQ
+    :maxdepth: 1
+
+    faq
+
+
+.. toctree::
+    :caption: CREDITS
+    :maxdepth: 1
+
+    credits
