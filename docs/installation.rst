@@ -30,7 +30,7 @@ Install the CernVM-FS client:
     sudo yum install -q -y cvmfs
  
 .. hint::
-   **Manual installation on CentOS**: If you prefer not to add CERN's package repository to your computer, you can directly download the latest version of the required package from the `CERN package repository <https://cernvm.cern.ch/portal/filesystem/downloads>`_ and manually install them using ``yum``.
+   **Manual installation on CentOS**: If you prefer not to add CERN's package repository to your computer or to choose a specific version of the software, you can directly download the desired version of the relevant package from the `CERN package repository <https://cernvm.cern.ch/portal/filesystem/downloads>`_ and manually install it using ``yum``.
 
 
 Step 2: Configure the LSST repository
@@ -82,7 +82,7 @@ Install the CernVM-FS client:
     sudo apt-get --yes install cvmfs
 
 .. hint::
-   **Manual installation on Ubuntu**: If you prefer not to add CERN's package repository to your computer, you can directly download the latest version of the required package from the `CERN package repository <https://cernvm.cern.ch/portal/filesystem/downloads>`_ and manually install it using ``dpkg``.
+   **Manual installation on Ubuntu**: If you prefer not to add CERN's package repository to your computer or to choose a specific version of the software, you can directly download the desired version of the relevant package from the `CERN package repository <https://cernvm.cern.ch/portal/filesystem/downloads>`_ and manually install it using ``dpkg``.
 
 
 Step 2: Configure the LSST repository
