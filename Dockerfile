@@ -24,4 +24,3 @@ ADD ["buildLinuxPkg.sh", "version.sh", "./"]
 ADD ["etc/", "./etc/"]
 
 ENTRYPOINT /home/${username}/buildLinuxPkg.sh
-
