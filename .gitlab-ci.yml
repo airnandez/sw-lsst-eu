@@ -6,6 +6,7 @@ makedoc:
   - rm -r /builds/$CI_PROJECT_NAMESPACE/htmloutput/* || true
   # copy conf files to docs folder before build
   - /bin/cp -rf /tmp/docs/* /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/
+  - cat /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/conf.py
 
   - sphinx-build -b html /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/ /builds/$CI_PROJECT_NAMESPACE/htmloutput
   # overwrite theme.css after build
