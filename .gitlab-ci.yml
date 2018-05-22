@@ -5,7 +5,8 @@ makedoc:
   - mkdir -p /builds/$CI_PROJECT_NAMESPACE/htmloutput
   - rm -r /builds/$CI_PROJECT_NAMESPACE/htmloutput/* || true
   # copy conf files to docs folder before build
-  - /bin/cp -rf /tmp/docs/* /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/
+  - rm -rf /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/conf.py
+  - cp -rf /tmp/docs/* /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/
   - cat /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/conf.py
   - ls -al /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/
 
