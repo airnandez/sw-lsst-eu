@@ -5,7 +5,7 @@ makedoc:
   - mkdir -p /builds/$CI_PROJECT_NAMESPACE/htmloutput
   - rm -r /builds/$CI_PROJECT_NAMESPACE/htmloutput/* || true
   # copy conf files to docs folder before build
-  - cp -r /tmp/docs/* /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/
+  - cp -rf /tmp/docs/* /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/
 
   - sphinx-build -b html /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/ /builds/$CI_PROJECT_NAMESPACE/htmloutput
   # overwrite theme.css after build
