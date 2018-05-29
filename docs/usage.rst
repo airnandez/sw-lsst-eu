@@ -17,24 +17,30 @@ The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There
 
     $ tree -L 3 /cvmfs/sw.lsst.eu
     /cvmfs/sw.lsst.eu
-    |-- darwin-x86_64
-    |   `-- lsst_distrib
-    |       |-- v15.0
-    |       |-- w_2018_14
-    |       |-- w_2018_15
-    |       |-- w_2018_16
-    |       |-- w_2018_17
-    |       |-- w_2018_18
-    |       `-- w_2018_19
-    `-- linux-x86_64
-        `-- lsst_distrib
-            |-- v15.0
-            |-- w_2018_14
-            |-- w_2018_15
-            |-- w_2018_16
-            |-- w_2018_17
-            |-- w_2018_18
-            `-- w_2018_19
+    ├── darwin-x86_64
+    │   └── lsst_distrib
+    │       ├── v15.0
+    │       ├── w_2018_14
+    │       ├── w_2018_15
+    │       ├── w_2018_16
+    │       ├── w_2018_17
+    │       ├── w_2018_18
+    │       ├── w_2018_19
+    │       ├── w_2018_20
+    │       └── w_2018_21
+    └── linux-x86_64
+        ├── lsst_distrib
+        │   ├── v15.0
+        │   ├── w_2018_14
+        │   ├── w_2018_15
+        │   ├── w_2018_16
+        │   ├── w_2018_17
+        │   ├── w_2018_18
+        │   ├── w_2018_19
+        │   ├── w_2018_20
+        │   └── w_2018_21
+        └── lsst_sims
+            └── sims_2_8_0
 
 
 Names of directories containing **stable releases** start with letter "v" (e.g. ``v15.0``) and directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_19``). ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the LSST software is built specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
