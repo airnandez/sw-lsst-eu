@@ -231,15 +231,3 @@ Let's suppose that you want to use your own version of one of the products inclu
        15.0-5-g891f9b3  w_latest w_2018_25 current setup
 
 
-
-
-
-
-
-
-
-.. todo::
-
-    Add information about:
-
-    * How to install additional packages by creating a custom conda environment
