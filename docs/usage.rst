@@ -177,7 +177,7 @@ More Advanced Usage
 
 Since ``/cvmfs/sw.lsst.eu`` is a read-only file system you cannot modify the packages installed there in. However, you can customize the set of EUPS packages you want to use in a work session.
 
-Let's suppose that you want to use your own version of one of the products included in the stack, namely ``obs_cfht``. You would like to modify that product for satistying your specific needs. Below you will find how you would proceed to do that. Note that there is nothing special with this product: this procedure should work with any other package.
+Let's suppose that you want to use your own version of one of the products included in the stack, namely ``obs_cfht``. You would like to modify that product to satisfy your specific needs. Below you will find how you would proceed to do that. Note that there is nothing special with this product: this procedure should work with any other package.
 
 .. code-block:: bash
 
@@ -231,15 +231,3 @@ Let's suppose that you want to use your own version of one of the products inclu
        15.0-5-g891f9b3  w_latest w_2018_25 current setup
 
 
-
-
-
-
-
-
-
-.. todo::
-
-    Add information about:
-
-    * How to install additional packages by creating a custom conda environment
