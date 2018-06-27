@@ -175,9 +175,71 @@ More information about EUPS can be found in this `EUPS tutorial <https://develop
 More Advanced Usage
 ===================
 
+Since ``/cvmfs/sw.lsst.eu`` is a read-only file system you cannot modify the packages installed there in. However, you can customize the set of EUPS packages you want to use in a work session.
+
+Let's suppose that you want to use your own version of one of the products included in the stack, namely ``obs_cfht``. You would like to modify that product for satistying your specific needs. Below you will find how you would proceed to do that. Note that there is nothing special with this product: this procedure should work with any other package.
+
+.. code-block:: bash
+
+    # Here we use a weekly release of the LSST pipelines, namely the one tagged 'w_2018_25'
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2018_25/loadLSST.bash
+
+    # EUPS setup the current version of the product 'obs_cfht' included in this release of the stack
+    # and verify that the set up version is the one included in the stack
+    $ setup obs_cfht
+    $ eups list obs_cfht
+       15.0-5-g891f9b3  w_latest w_2018_25 current setup
+
+    # Clone the product you want to customize under your $HOME and modify it to suit your needs
+    $ git clone https://github.com/lsst/obs_cfht $HOME/obs_cfht
+    $ cd $HOME/obs_cfht
+
+    # Build it
+    $ scons opt=3
+
+    # Declare version 'my_private_obs_cfht' of product 'obs_cfht' located under '$HOME/obs_cfht'
+    # and verify that now EUPS knows about your private version
+    $ eups declare -r $HOME/obs_cfht  obs_cfht  my_private_obs_cfht
+    $ eups list obs_cfht
+       15.0-5-g891f9b3  w_latest w_2018_25 current setup
+       my_private_obs_cfht 
+
+    # In order to use your private version you need to set it up first
+    $ setup obs_cfht my_private_obs_cfht
+    $ eups list obs_cfht
+       15.0-5-g891f9b3  w_latest w_2018_25 current
+       my_private_obs_cfht  setup
+
+    # From now on, when you use the product 'obs_cfht' you will be using the one
+    # in your $HOME
+
+    # When done, unsetup your private version
+    $ setup -u obs_cfht my_obs_cfht
+    $ eups list obs_cfht
+       15.0-5-g891f9b3  w_latest w_2018_25 current
+       my_private_obs_cfht 
+
+    # When you no longer need your private version tell EUPS to forget it
+    $ eups undeclare obs_cfht my_private_obs_cfht
+    $ eups list obs_cfht
+       15.0-5-g891f9b3  w_latest w_2018_25 current
+
+    # If you setup 'obs_cfht' again, it is the one included in the LSST stack that will be used
+    # and not your private one
+    $ setup obs_cfht
+    $ eups list obs_cfht
+       15.0-5-g891f9b3  w_latest w_2018_25 current setup
+
+
+
+
+
+
+
+
+
 .. todo::
 
     Add information about:
 
     * How to install additional packages by creating a custom conda environment
-    * How to install additional EUPS products on top of a read-only installation
