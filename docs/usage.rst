@@ -214,7 +214,7 @@ Let's suppose that you want to use your own version of one of the products inclu
     # in your $HOME
 
     # When done, unsetup your private version
-    $ setup -u obs_cfht my_obs_cfht
+    $ setup -u obs_cfht my_private_obs_cfht
     $ eups list obs_cfht
        15.0-5-g891f9b3  w_latest w_2018_25 current
        my_private_obs_cfht 
