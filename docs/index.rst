@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-*******************************************************************
-On how to get the LSST science pipelines delivered to your computer
-*******************************************************************
+*********************************************************
+Get the LSST science pipelines delivered to your computer
+*********************************************************
 
 Here you will find information on how to get a binary distribution of the `Large Synoptic Survey Telescope (LSST) <https://lsst.org>`_ `science pipelines <https://pipelines.lsst.io>`_ to use on your personal computer without installing the software.
 
