@@ -8,6 +8,8 @@ With this cloud-based software distribution mechanism **you will be able to use 
 
 This service is built upon CERN's `CernVM file system <https://cvmfs.readthedocs.io>`_, a POSIX read-only file system in user space designed for large-scale software distribution. A software agent running on your computer interacts with servers via standard protocols, downloads the files on demand, caches them on your computer and exposes them via the operating system's file system interface.
 
+You may want to browse the current contents of this software repository via `CERN's repository monitor <http://cernvm-monitor.cern.ch/cvmfs-monitor/cb/browser/sw.lsst.eu/latest>`_ before deciding if this service is suitable for your own needs.
+
 In this section you will find information on the benefits of this mechanism, its intended audience, the platforms where it is supported and how to get started.
 
 ========
