@@ -192,7 +192,7 @@ If you can see the contents of that directory your computer is correctly configu
 Troubleshooting your Installation
 *********************************
 
-In order for this distribution mechanism to work, your computer must be connected to the network, be able to establish network connections to the servers operated by CC-IN2P3 and download files via the HTTP protocol. To check that this is the case, please do:
+In order for this distribution mechanism to work, your computer must be connected to the network, be able to establish network connections to the servers operated by CC-IN2P3 and replicated by other organisations (e.g. CERN) and download files via the HTTP protocol. To check that this is the case, please do:
 
 .. code-block:: bash
  
@@ -201,6 +201,8 @@ In order for this distribution mechanism to work, your computer must be connecte
         bash check.sh
 
 You can tell everything is OK if there is no error message. Otherwise, the displayed error message may help you understanding what is wrong.
+
+You may also want to check the status of the repository by visiting `CERN's replication monitor <http://cernvm-monitor.cern.ch/cvmfs-monitor/sw.lsst.eu/>`_.
 
 If this does not help solving your issue, please see :ref:`help`.
 
