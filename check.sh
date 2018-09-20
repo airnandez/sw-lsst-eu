@@ -26,7 +26,12 @@ proxies=`echo ${CVMFS_HTTP_PROXY} | sed -e 's/|/ /g' -e 's/;/ /g'`
 rc=0
 for u in ${urls}; do
    for p in ${proxies}; do
-      ok=`${curlCmd} --silent --head --proxy ${p} ${u} | grep "HTTP/1.1 200 OK"`
+      if [[ ${p} == "DIRECT" ]]; then
+         proxy=""
+      else
+         proxy="--proxy ${p}"
+      fi
+      ok=`${curlCmd} --silent --head ${proxy} ${u} | grep "HTTP/1.1 200 OK"`
       if [[ -z ${ok} ]]; then
          echo "HTTP HEAD request for $u via proxy $p failed"
          rc=1
