@@ -40,7 +40,7 @@ Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
 .. code-block:: bash 
 
-    sudo rpm -i https://github.com/airnandez/sw-lsst-eu/releases/download/v0.5/cvmfs-config-lsst-0.5-1.noarch.rpm
+    sudo rpm -U https://github.com/airnandez/sw-lsst-eu/releases/download/v0.6/cvmfs-config-lsst-0.6-1.noarch.rpm
 
 Complete the CernVM-FS client configuration:
 
@@ -92,8 +92,8 @@ Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
 .. code-block:: bash 
 
-    curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.5/cvmfs-config-lsst_0.5_all.deb
-    sudo dpkg -i cvmfs-config-lsst_0.5_all.deb
+    curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.6/cvmfs-config-lsst_0.6_all.deb
+    sudo dpkg -i cvmfs-config-lsst_0.6_all.deb
 
 Complete the CernVM-FS client configuration:
 
@@ -136,8 +136,8 @@ Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
 .. code-block:: bash 
 
-    curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.5/sw-lsst-eu-cvmfs-config_0.5.pkg
-    open sw-lsst-eu-cvmfs-config_0.5.pkg
+    curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.6/sw-lsst-eu-cvmfs-config_0.6.pkg
+    open sw-lsst-eu-cvmfs-config_0.6.pkg
 
 Complete the CernVM-FS client configuration:
 
