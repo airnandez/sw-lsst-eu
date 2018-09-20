@@ -1,4 +1,4 @@
 # Returns the version of the configuration package
 pkgVersion() {
-	echo "0.5"
+	echo "0.6"
 }
