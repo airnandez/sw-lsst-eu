@@ -202,7 +202,7 @@ In order for this distribution mechanism to work, your computer must be connecte
 
 You can tell everything is OK if there is no error message. Otherwise, the displayed error message may help you understanding what is wrong.
 
-You may also want to check the status of the repository by visiting `CERN's replication monitor <http://cernvm-monitor.cern.ch/cvmfs-monitor/sw.lsst.eu/>`_.
+You may also want to check the status of the servers hosting the files of this software repository by visiting `CERN's replication monitor <http://cernvm-monitor.cern.ch/cvmfs-monitor/sw.lsst.eu/>`_.
 
 If this does not help solving your issue, please see :ref:`help`.
 
