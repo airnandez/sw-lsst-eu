@@ -143,7 +143,7 @@ Complete the CernVM-FS client configuration:
 
 .. code-block:: bash 
 
-    sudo /usr/bin/cvmfs_config setup
+    sudo /usr/local/bin/cvmfs_config setup
 
 
 Step 3: Mount ``/cvmfs/sw.lsst.eu`` 
