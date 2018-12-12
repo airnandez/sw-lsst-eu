@@ -8,7 +8,7 @@ With this cloud-based software distribution mechanism **you will be able to use 
 
 This service is built upon CERN's `CernVM file system <https://cvmfs.readthedocs.io>`_, a POSIX read-only file system in user space designed for large-scale software distribution. A software agent running on your computer interacts with servers via standard protocols, downloads the files on demand, caches them on your computer and exposes them via the operating system's file system interface.
 
-You may want to browse the current contents of this software repository via `CERN's repository monitor <http://cernvm-monitor.cern.ch/cvmfs-monitor/cb/browser/sw.lsst.eu/latest>`_ before deciding if this service is suitable for your own needs.
+You may want to **browse the current contents of this software repository** via `CERN's repository monitor <http://cernvm-monitor.cern.ch/cvmfs-monitor/cb/browser/sw.lsst.eu/latest>`_ before deciding if this service is suitable for your own needs.
 
 In this section you will find information on the benefits of this mechanism, its intended audience, the platforms where it is supported and how to get started.
 
@@ -38,7 +38,7 @@ Intended Audience
 
 This mechanism of distributing the LSST software, which supplements the `other mechanisms <https://pipelines.lsst.io/install/index.html>`_ provided by the project, is intended in particular for **individuals** willing to use the LSST software on their personnal computers. 
 
-However, it is not limited to that use case. The same mechanism is used for making the LSST software available to the computers in the CC-IN2P3's `login <http://doc.lsst.eu/ccin2p3/ccin2p3.html#login-farm>`_ and `batch <http://doc.lsst.eu/ccin2p3/ccin2p3.html#batch-farm>`_ farms. This is considered beneficial for reproducibility purposes, since as a scientist you can use exactly the same version of the LSST software on your personal computer, as well as in your notebooks and in your batch jobs executing at CC-IN2P3.
+However, it is not limited to that use case. The same mechanism is used for making the LSST software available to the computers in the CC-IN2P3's `login <http://doc.lsst.eu/ccin2p3/ccin2p3.html#login-farm>`_ and `batch <http://doc.lsst.eu/ccin2p3/ccin2p3.html#batch-farm>`_ farms. This is considered beneficial for reproducibility purposes, since as a scientist you can use exactly the same version of the LSST software on your personal computer, as well as in your notebooks and in your batch or grid jobs executing at CC-IN2P3, `NERSC <https://www.nersc.gov>`_  and `OpenScienceGrid <https://opensciencegrid.org>`_ sites.
 
 
 ===================
