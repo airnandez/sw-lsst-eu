@@ -11,55 +11,73 @@ In this section you will find information on how to use the online LSST software
 Repository Layout
 =================
 
-The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There you will find a sub-directory per supported platform (i.e. ``darwin-x86_64``, ``linux-x86_64``), a subdirectory for each distribution (e.g. ``lsst_distrib``) and a subdirectory for each available release (e.g. ``v15.0``, ``w_2018_19``). It looks like:
+The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There you will find a sub-directory per supported platform (i.e. ``darwin-x86_64``, ``linux-x86_64``), a subdirectory for each distribution (e.g. ``lsst_distrib``, ``lsst_sims``) and a subdirectory for each available release (e.g. ``v16.0``, ``w_2018_48``). It looks like:
 
 .. code-block:: bash
 
     $ tree -L 3 /cvmfs/sw.lsst.eu
     /cvmfs/sw.lsst.eu
-    |-- darwin-x86_64
-    |   `-- lsst_distrib
-    |       |-- v15.0
-    |       |-- v16.0
-    |       |-- w_2018_14
-    |       |-- w_2018_15
-    |       |-- w_2018_16
-    |       |-- w_2018_17
-    |       |-- w_2018_18
-    |       |-- w_2018_19
-    |       |-- w_2018_20
-    |       |-- w_2018_21
-    |       |-- w_2018_22
-    |       |-- w_2018_23
-    |       |-- w_2018_24
-    |       `-- w_2018_25
-    `-- linux-x86_64
-        |-- lsst_distrib
-        |   |-- v15.0
-        |   |-- v16.0
-        |   |-- w_2018_14
-        |   |-- w_2018_15
-        |   |-- w_2018_16
-        |   |-- w_2018_17
-        |   |-- w_2018_18
-        |   |-- w_2018_19
-        |   |-- w_2018_20
-        |   |-- w_2018_21
-        |   |-- w_2018_22
-        |   |-- w_2018_23
-        |   |-- w_2018_24
-        |   `-- w_2018_25
-        `-- lsst_sims
-            `-- sims_2_8_0
+    ├── darwin-x86_64
+    │   └── lsst_distrib
+    │       ├── v15.0
+    │       ├── v16.0
+    │       ├── w_2018_30
+    │       ├── w_2018_31
+    │       ├── w_2018_32
+    │       ├── w_2018_33
+    │       ├── w_2018_34
+    │       ├── w_2018_35
+    │       ├── w_2018_36
+    │       ├── w_2018_37
+    │       ├── w_2018_38
+    │       ├── w_2018_39
+    │       ├── w_2018_40
+    │       ├── w_2018_41
+    │       ├── w_2018_42
+    │       ├── w_2018_43
+    │       ├── w_2018_44
+    │       ├── w_2018_45
+    │       ├── w_2018_46
+    │       ├── w_2018_47
+    │       ├── w_2018_48
+    │       └── w_2018_49
+    └── linux-x86_64
+        ├── lsst_distrib
+        │   ├── v15.0
+        │   ├── v16.0
+        │   ├── w_2018_30
+        │   ├── w_2018_31
+        │   ├── w_2018_32
+        │   ├── w_2018_33
+        │   ├── w_2018_34
+        │   ├── w_2018_35
+        │   ├── w_2018_36
+        │   ├── w_2018_37
+        │   ├── w_2018_38
+        │   ├── w_2018_39
+        │   ├── w_2018_40
+        │   ├── w_2018_41
+        │   ├── w_2018_42
+        │   ├── w_2018_43
+        │   ├── w_2018_44
+        │   ├── w_2018_45
+        │   ├── w_2018_46
+        │   ├── w_2018_47
+        │   ├── w_2018_48
+        │   └── w_2018_49
+        └── lsst_sims
+            ├── sims_2_10_0
+            ├── sims_2_13_1
+            ├── sims_2_8_0
+            ├── sims_2_9_0
+            └── sims_w_2018_49
 
-    34 directories, 0 files
+    54 directories, 0 files
 
 
+Names of directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_48``) or "sims_w" (e.g. ``sims_w_2018_49``).  **Stable releases** of ``lsst_distrib`` start with letter "v" (e.g. ``v16.0``) and stable releases of ``lsst_sims`` are named like ``sims_2_13_1``. ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the software is built from sources, specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
 
-
-Names of directories containing **stable releases** start with letter "v" (e.g. ``v15.0``) and directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_19``). ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the LSST software is built specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
-
-Each release of the LSST software you will find under ``/cvmfs/sw.lsst.eu``, be it stable or weekly, is mostly self contained: it includes its own EUPS (see below), its own **Python 3** distribution (typically `miniconda <https://www.anaconda.com/download>`_) and its own set of external packages that specific release depends on (e.g. ``numpy``, ``cfitsio``, etc.). In particular, since the Python distribution installed with each release includes its own interpreter, each release is independent and configured so **it does not conflict with other Python interpreter** you may have already installed on your computer.
+Each release of the software you will find under ``/cvmfs/sw.lsst.eu``, be it stable or weekly, is mostly self contained: it includes its own EUPS (see below), its own **Python 3** distribution (typically `miniconda <https://www.anaconda.com/download>`_) and its own set of external packages that specific release depends on (e.g. ``numpy``, ``cfitsio``, etc.). In particular, since the Python distribution installed with each release includes its own interpreter, each release is independent and configured so **it does not conflict with other Python interpreter** you may have already installed on your computer.
 
 .. important::
 
@@ -72,12 +90,12 @@ Each release of the LSST software you will find under ``/cvmfs/sw.lsst.eu``, be 
 Basic Usage
 ===========
 
-The first step for using the LSST science pipelines is to select the release you want to use and bootstrap your environment for that specific release. For instance, to use LSST ``v15.0`` on a Linux computer do:
+The first step for using the LSST science pipelines is to select the release you want to use and bootstrap your environment for that specific release. For instance, to use LSST ``v16.0`` on a Linux computer do:
 
 .. code-block:: bash
 
     # Open a new terminal session using a BASH shell
-    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v15.0/loadLSST.bash
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v16.0/loadLSST.bash
 
 As a result of executing this command, some environmental variables are extended or initialized, such as ``PATH``, ``PYTHONPATH``, ``LD_LIBRARY_PATH`` and ``EUPS_PATH``.
 
@@ -110,14 +128,14 @@ After these steps, your working environment is modified so that you can use the 
     ...
 
 
-If later on you need to work with a different release, say weekly ``w_2018_19``, **you must create a new terminal session** and configure your environment for the that specific release. For instance:
+If later on you need to work with a different release, say weekly ``w_2018_48``, **you must create a new terminal session** and configure your environment for the that specific release. For instance:
 
 .. code-block:: bash
 
     # In a new terminal session with BASH shell
-    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2018_19/loadLSST.bash
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2018_48/loadLSST.bash
 
-    # From this point on, your environment is set up to use release w_2018_19
+    # From this point on, your environment is set up to use release w_2018_48 of lsst_distrib
 
 At this point you may want to `run the LSST demo <https://pipelines.lsst.io/install/demo.html#download-the-demo-project>`_ and read the tutorials on `how to use the LSST Science Pipelines <https://pipelines.lsst.io/getting-started/index.html#getting-started-tutorials>`_.
 
@@ -215,7 +233,7 @@ Let's suppose that you want to use your own version of one of the products inclu
     # and verify that now EUPS knows about your private version
     $ eups declare -r $HOME/obs_cfht  obs_cfht  my_private_obs_cfht
     $ eups list obs_cfht
-       15.0-5-g891f9b3  w_latest w_2018_25 current setup
+       15.0-5-g891f9b3  w_latest w_2018_48 current setup
        my_private_obs_cfht 
 
     # In order to use your private version you need to set it up first
