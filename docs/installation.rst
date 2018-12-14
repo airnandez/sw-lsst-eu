@@ -40,13 +40,14 @@ Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
 .. code-block:: bash 
 
-    sudo rpm -U https://github.com/airnandez/sw-lsst-eu/releases/download/v0.6/cvmfs-config-lsst-0.6-1.noarch.rpm
+    sudo rpm -U https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/cvmfs-config-lsst-0.7-1.noarch.rpm
 
 Complete the CernVM-FS client configuration:
 
 .. code-block:: bash 
 
     sudo /usr/bin/cvmfs_config setup
+    sudo service autofs restart
 
 
 Step 3: Mount ``/cvmfs/sw.lsst.eu`` 
@@ -56,7 +57,7 @@ On CentOS, the CernVM-FS client uses ``autofs`` for automatically mounting the f
 
 .. code-block:: bash 
 
-    sudo chkconfig autofs on
+    sudo systemctl enable --now autofs
 
 You can now proceed to :ref:`testinginstallation`.
 
@@ -92,14 +93,15 @@ Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
 .. code-block:: bash 
 
-    curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.6/cvmfs-config-lsst_0.6_all.deb
-    sudo dpkg -i cvmfs-config-lsst_0.6_all.deb
+    curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/cvmfs-config-lsst_0.7_all.deb
+    sudo dpkg -i cvmfs-config-lsst_0.7_all.deb
 
 Complete the CernVM-FS client configuration:
 
 .. code-block:: bash 
 
     sudo /usr/bin/cvmfs_config setup
+    sudo service autofs restart
 
 
 Step 3: Mount ``/cvmfs/sw.lsst.eu`` 
@@ -109,7 +111,7 @@ On Ubuntu, the CernVM-FS client uses ``autofs`` for automatically mounting the f
 
 .. code-block:: bash 
 
-    sudo sysv-rc-conf autofs on
+    sudo systemctl enable autofs.service
 
 You can now proceed to :ref:`testinginstallation`.
 
@@ -136,8 +138,8 @@ Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
 .. code-block:: bash 
 
-    curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.6/sw-lsst-eu-cvmfs-config_0.6.pkg
-    open sw-lsst-eu-cvmfs-config_0.6.pkg
+    curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/sw-lsst-eu-cvmfs-config_0.7.pkg
+    open sw-lsst-eu-cvmfs-config_0.7.pkg
 
 Complete the CernVM-FS client configuration:
 
@@ -167,7 +169,6 @@ and to unmount it:
 
     sudo umount /cvmfs/sw.lsst.eu
 
-
 .. _testinginstallation:
 
 *************************
@@ -185,6 +186,19 @@ If you can see the contents of that directory your computer is correctly configu
 .. important::
 
     Please note that on both Linux and macOS **you must mount the file system on the directory** ``/cvmfs/sw.lsst.eu`` because the LSST software is specifically built and packaged to be used under this path. The software won't work when relocated under another path.
+
+You may also want to tell the cvmfs client running on your computer to probe all the configured servers and sort them by geographical proximity:
+
+.. code-block:: bash
+
+    sudo cvmfs_talk -i sw.lsst.eu host probe geo
+
+To display how it ordered the servers do:
+
+.. code-block:: bash
+
+    sudo cvmfs_talk -i sw.lsst.eu host info
+
 
 .. _troubleshooting:
 
