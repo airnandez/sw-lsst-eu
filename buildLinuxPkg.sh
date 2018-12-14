@@ -23,6 +23,13 @@ mkdir -p ${outputDir}
 rm -f ${outputDir}/${packageName}*.{rpm,deb}
 
 #
+# Set appropriate permissions
+#
+chmod ugo-wx,ugo+r ./etc/cvmfs/keys/lsst.eu/*.pub
+chmod ugo-wx,ugo+r ./etc/cvmfs/domain.d/lsst.eu.conf
+chmod ugo-wx,ugo+r ./etc/cvmfs/config.d/sw.lsst.eu.*
+
+#
 # Build RPM and DEB packages
 #
 for out in rpm deb; do

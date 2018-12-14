@@ -1,10 +1,10 @@
 #-----------------------------------------------------------------------------#
-#          File: /etc/cvmfs/domain.d/lsst.eu.local                            #
-#       Purpose: configuration of CernVM-FS file system 'sw.lsst.eu'          #
+#          File: /etc/cvmfs/config.d/sw.lsst.eu.local                         #
+#       Purpose: configuration of CernVM-FS file system for repository        # 
+#                'sw.lsst.eu'                                                 #
 #        Author: Fabio Hernandez (fabio@in2p3.fr)                             #
 # Documentation: https://sw.lsst.eu                                           #
 #-----------------------------------------------------------------------------#
-
 
 #
 # If needed, add 'sw.lsst.eu' to the list of repositories this computer
@@ -15,19 +15,17 @@ if [[ ! $CVMFS_REPOSITORIES =~ sw.lsst.eu ]]; then
     CVMFS_REPOSITORIES=${CVMFS_REPOSITORIES}',sw.lsst.eu'
 fi
 
-
 #
 # Amount of local storage (in megabytes) the CernVM-FS client will
 # use to cache remote files in local storage of this computer.
 # A single version of the LSST software stack and its dependencies
-# takes more than 10 GB, but not all files in a given version are
+# takes about 10 GB, but not all files of a given release are
 # used at the same time.
 #
-CVMFS_QUOTA_LIMIT=${CVMFS_QUOTA_LIMIT:-10000}
-if [[ $CVMFS_QUOTA_LIMIT -le 10000 ]]; then
-    CVMFS_QUOTA_LIMIT=10000
+CVMFS_QUOTA_LIMIT=${CVMFS_QUOTA_LIMIT:-12000}
+if [[ $CVMFS_QUOTA_LIMIT -le 12000 ]]; then
+    CVMFS_QUOTA_LIMIT=12000
 fi
-
 
 #
 # This tells the CernVM-FS client to use a single local cache for
@@ -36,10 +34,10 @@ fi
 #
 CVMFS_SHARED_CACHE=${CVMFS_SHARED_CACHE:-yes}
 
-
 #
 # The default cache directory is '/var/lib/cvmfs' but you can change it by
 # uncommenting and customizing the line below. Make sure this directory
 # exists and is located on a local file system.
 #
-# CVMFS_CACHE_BASE=/path/to/my/cache
+# CVMFS_CACHE_BASE='/path/to/my/cache/dir'
+
