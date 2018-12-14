@@ -8,4 +8,4 @@ This work is a contribution by `LSST-France <http://www.lsst.fr>`_ to the worldw
 
 The continous delivery infrastructure of this web site was set up and is maintained by **Bertrand Rigaud**. **Vanessa Hamar** manages CC-IN2P3's CernVM-FS servers infrastructure and **Fabio Hernandez** takes care of building the LSST software, packaging it for distribution and continuously improving this documentation.
 
-For bringing this service to you we leverage the work done by the `LSST Data Management <https://www.lsst.org/about/dm>`_ and CERN's `CernVM-FS <https://cernvm.cern.ch/portal/filesystem>`_ teams.
+For bringing this service to you we leverage the work done by the `LSST Data Management <https://www.lsst.org/about/dm>`_ and CERN's `CernVM-FS <https://cernvm.cern.ch/portal/filesystem>`_ teams. Special thanks to `OpenScienceGrid <https://opensciencegrid.org>`_ and `CERN Information Technology department <http://information-technology.web.cern.ch>`_ for making a replica of this repository available.

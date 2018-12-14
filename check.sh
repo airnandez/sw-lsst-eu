@@ -7,8 +7,8 @@
 # for CernVM-FS software repository 'sw.lsst.eu', via the configured proxies
 #
 
-if [[ ! -f /etc/cvmfs/domain.d/lsst.eu.conf ]]; then
-   echo "file /etc/cvmfs/domain.d/lsst.eu.conf could not be found"
+if [[ ! -f /etc/cvmfs/config.d/sw.lsst.eu.conf ]]; then
+   echo "file /etc/cvmfs/config.d/sw.lsst.eu.conf could not be found"
    exit 1
 fi
 
@@ -18,7 +18,7 @@ if [[ -z ${curlCmd} ]]; then
    exit 1
 fi
 
-source /etc/cvmfs/domain.d/lsst.eu.conf
+source /etc/cvmfs/config.d/sw.lsst.eu.conf
 
 urls=`echo ${CVMFS_SERVER_URL} | sed -e 's/;/ /g' -e 's|@fqrn@|sw.lsst.eu/.cvmfspublished|g'`
 proxies=`echo ${CVMFS_HTTP_PROXY} | sed -e 's/|/ /g' -e 's/;/ /g'`
