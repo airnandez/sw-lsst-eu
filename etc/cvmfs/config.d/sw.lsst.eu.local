@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------------------#
-#          File: /etc/cvmfs/config.d/lsst.eu.local                            #
+#          File: /etc/cvmfs/config.d/sw.lsst.eu.local                         #
 #       Purpose: configuration of CernVM-FS file system for repository        # 
 #                'sw.lsst.eu'                                                 #
 #        Author: Fabio Hernandez (fabio@in2p3.fr)                             #
