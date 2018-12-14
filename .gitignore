@@ -2,6 +2,7 @@ docs/_build
 docs/_static
 docs/_templates
 utils/
+archives/
 *.deb
 *.pkg
 *.rpm
