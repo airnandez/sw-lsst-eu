@@ -11,71 +11,87 @@ In this section you will find information on how to use the online LSST software
 Repository Layout
 =================
 
-The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There you will find a sub-directory per supported platform (i.e. ``darwin-x86_64``, ``linux-x86_64``), a subdirectory for each distribution (e.g. ``lsst_distrib``, ``lsst_sims``) and a subdirectory for each available release (e.g. ``v16.0``, ``w_2018_48``). It looks like:
+The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There you will find a sub-directory per supported platform (i.e. ``darwin-x86_64``, ``linux-x86_64``), a subdirectory for each distribution (e.g. ``lsst_distrib``, ``lsst_sims``) and a subdirectory for each available release (e.g. ``v17.0``, ``w_2018_48``). It looks like:
 
 .. code-block:: bash
 
     $ tree -L 3 /cvmfs/sw.lsst.eu
     /cvmfs/sw.lsst.eu
-    ├── darwin-x86_64
-    │   └── lsst_distrib
-    │       ├── v15.0
-    │       ├── v16.0
-    │       ├── w_2018_30
-    │       ├── w_2018_31
-    │       ├── w_2018_32
-    │       ├── w_2018_33
-    │       ├── w_2018_34
-    │       ├── w_2018_35
-    │       ├── w_2018_36
-    │       ├── w_2018_37
-    │       ├── w_2018_38
-    │       ├── w_2018_39
-    │       ├── w_2018_40
-    │       ├── w_2018_41
-    │       ├── w_2018_42
-    │       ├── w_2018_43
-    │       ├── w_2018_44
-    │       ├── w_2018_45
-    │       ├── w_2018_46
-    │       ├── w_2018_47
-    │       ├── w_2018_48
-    │       └── w_2018_49
-    └── linux-x86_64
-        ├── lsst_distrib
-        │   ├── v15.0
-        │   ├── v16.0
-        │   ├── w_2018_30
-        │   ├── w_2018_31
-        │   ├── w_2018_32
-        │   ├── w_2018_33
-        │   ├── w_2018_34
-        │   ├── w_2018_35
-        │   ├── w_2018_36
-        │   ├── w_2018_37
-        │   ├── w_2018_38
-        │   ├── w_2018_39
-        │   ├── w_2018_40
-        │   ├── w_2018_41
-        │   ├── w_2018_42
-        │   ├── w_2018_43
-        │   ├── w_2018_44
-        │   ├── w_2018_45
-        │   ├── w_2018_46
-        │   ├── w_2018_47
-        │   ├── w_2018_48
-        │   └── w_2018_49
-        └── lsst_sims
-            ├── sims_2_10_0
-            ├── sims_2_13_1
-            ├── sims_2_8_0
-            ├── sims_2_9_0
-            └── sims_w_2018_49
+    |-- darwin-x86_64
+    |   |-- lsst_distrib
+    |   |   |-- v15.0
+    |   |   |-- v16.0
+    |   |   |-- v17.0
+    |   |   |-- w_2018_45
+    |   |   |-- w_2018_46
+    |   |   |-- w_2018_47
+    |   |   |-- w_2018_48
+    |   |   |-- w_2018_49
+    |   |   |-- w_2018_50
+    |   |   |-- w_2018_51
+    |   |   |-- w_2018_52
+    |   |   |-- w_2019_01
+    |   |   |-- w_2019_02
+    |   |   |-- w_2019_03
+    |   |   |-- w_2019_04
+    |   |   |-- w_2019_05
+    |   |   |-- w_2019_06
+    |   |   |-- w_2019_07
+    |   |   |-- w_2019_08
+    |   |   `-- w_2019_09
+    |   `-- lsst_sims
+    |       |-- sims_w_2019_01
+    |       |-- sims_w_2019_02
+    |       |-- sims_w_2019_03
+    |       |-- sims_w_2019_04
+    |       |-- sims_w_2019_05
+    |       |-- sims_w_2019_06
+    |       |-- sims_w_2019_08
+    |       `-- sims_w_2019_09
+    `-- linux-x86_64
+        |-- lsst_distrib
+        |   |-- v15.0
+        |   |-- v16.0
+        |   |-- v17.0
+        |   |-- w_2018_45
+        |   |-- w_2018_46
+        |   |-- w_2018_47
+        |   |-- w_2018_48
+        |   |-- w_2018_49
+        |   |-- w_2018_50
+        |   |-- w_2018_51
+        |   |-- w_2018_52
+        |   |-- w_2019_01
+        |   |-- w_2019_02
+        |   |-- w_2019_03
+        |   |-- w_2019_04
+        |   |-- w_2019_05
+        |   |-- w_2019_06
+        |   |-- w_2019_07
+        |   |-- w_2019_08
+        |   `-- w_2019_09
+        `-- lsst_sims
+            |-- sims_2_10_0
+            |-- sims_2_13_1
+            |-- sims_2_8_0
+            |-- sims_2_9_0
+            |-- sims_w_2018_49
+            |-- sims_w_2018_50
+            |-- sims_w_2018_51
+            |-- sims_w_2018_52
+            |-- sims_w_2019_01
+            |-- sims_w_2019_02
+            |-- sims_w_2019_03
+            |-- sims_w_2019_04
+            |-- sims_w_2019_05
+            |-- sims_w_2019_06
+            |-- sims_w_2019_08
+            `-- sims_w_2019_09
 
-    54 directories, 0 files
+    100 directories, 0 files
 
 
-Names of directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_48``) or "sims_w" (e.g. ``sims_w_2018_49``).  **Stable releases** of ``lsst_distrib`` start with letter "v" (e.g. ``v16.0``) and stable releases of ``lsst_sims`` are named like ``sims_2_13_1``. ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the software is built from sources, specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
+Names of directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_48``) or "sims_w" (e.g. ``sims_w_2018_49``).  **Stable releases** of ``lsst_distrib`` start with letter "v" (e.g. ``v17.0``) and stable releases of ``lsst_sims`` are named like ``sims_2_13_1``. ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the software is built from sources, specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
 
 Each release of the software you will find under ``/cvmfs/sw.lsst.eu``, be it stable or weekly, is mostly self contained: it includes its own EUPS (see below), its own **Python 3** distribution (typically `miniconda <https://www.anaconda.com/download>`_) and its own set of external packages that specific release depends on (e.g. ``numpy``, ``cfitsio``, etc.). In particular, since the Python distribution installed with each release includes its own interpreter, each release is independent and configured so **it does not conflict with other Python interpreter** you may have already installed on your computer.
 
@@ -90,12 +106,12 @@ Each release of the software you will find under ``/cvmfs/sw.lsst.eu``, be it st
 Basic Usage
 ===========
 
-The first step for using the LSST science pipelines is to select the release you want to use and bootstrap your environment for that specific release. For instance, to use LSST ``v16.0`` on a Linux computer do:
+The first step for using the LSST science pipelines is to select the release you want to use and bootstrap your environment for that specific release. For instance, to use LSST ``v17.0`` on a Linux computer do:
 
 .. code-block:: bash
 
     # Open a new terminal session using a BASH shell
-    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v16.0/loadLSST.bash
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v17.0/loadLSST.bash
 
 As a result of executing this command, some environmental variables are extended or initialized, such as ``PATH``, ``PYTHONPATH``, ``LD_LIBRARY_PATH`` and ``EUPS_PATH``.
 
