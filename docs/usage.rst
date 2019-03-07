@@ -88,8 +88,6 @@ The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There
             |-- sims_w_2019_08
             `-- sims_w_2019_09
 
-    100 directories, 0 files
-
 
 Names of directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_48``) or "sims_w" (e.g. ``sims_w_2018_49``).  **Stable releases** of ``lsst_distrib`` start with letter "v" (e.g. ``v17.0``) and stable releases of ``lsst_sims`` are named like ``sims_2_13_1``. ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the software is built from sources, specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
 
