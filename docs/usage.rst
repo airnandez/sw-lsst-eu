@@ -279,3 +279,30 @@ Let's suppose that you want to use your own version of one of the products inclu
        15.0-5-g891f9b3  w_latest w_2018_25 current setup
 
 
+Using both lsst_distrib and lsst_sims in the same work session
+==============================================================
+
+To work with both **lsst_distrib** and **lsst_sims** in the same work session you can proceed as shown below. For illustration purposes, in this example we use **lsst_distrib** release ``w_2019_19`` and **lsst_sims** release ``sims_w_2019_19`` on a computer running Linux:
+
+
+.. code-block:: bash
+
+    # Setup the environment for lsst_distrib and EUPS setup it
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2019_19/loadLSST.bash
+    $ setup lsst_distrib
+
+    # Extend EUPS_PATH to also include the EUPS products in lsst_sims
+    $ export EUPS_PATH=${EUPS_PATH}:/cvmfs/sw.lsst.eu/linux-x86_64/lsst_sims/sims_w_2019_19/stack/current
+    $ setup lsst_sims
+
+Now, to check that both **lsst_distrib** and **lsst_sims** are (EUPS) setup do:
+
+ .. code-block:: bash
+
+    $ eups list --name -s | grep -e 'lsst_sims' -e 'lsst_distrib'
+    lsst_distrib
+    lsst_sims 
+
+The same procedure works on macOS, but you need to use the appropriate top directory, that is ``/cvmfs/sw.lsst.eu/darwin-x86_64`` instead of ``/cvmfs/sw.lsst.eu/linux-x86_64``.
+
+
