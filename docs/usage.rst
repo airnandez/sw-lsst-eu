@@ -299,7 +299,7 @@ Now, to check that both **lsst_distrib** and **lsst_sims** are (EUPS) setup do:
 
  .. code-block:: bash
 
-    $ eups list --name -s | grep -e 'lsst_sims' -e 'lsst_distrib'
+    $ eups list --name -s | grep -e lsst_sims -e lsst_distrib
     lsst_distrib
     lsst_sims 
 
