@@ -8,7 +8,7 @@ How to Get Help and Provide Feedback
 How to get help
 ---------------
 
-If you have questions or want to share your experience using this service, please feel free to comment via the `LSST Community <https://community.lsst.org/c/support>`_ forum.
+If you have questions or want to share your experience using this service, please feel free to comment via the `LSST Community <https://community.lsst.org/c/support>`_ forum or the `#in2p3-cvmfs <https://lsstc.slack.com/messages/CLQL42BK9>`_ Slack channel.
 
 
 How to provide feedback
