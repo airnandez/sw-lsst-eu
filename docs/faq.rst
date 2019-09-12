@@ -10,7 +10,7 @@ How many releases of the LSST software do you plan to keep available online?
 
 Our current policy is to keep online **all the stable releases** and at least the **latest 12 weekly releases** officially issued by the LSST project.
 
-Even if olther than 12 weeks, specific weekly releases identified by the community as necessary are also kept online. We call those releases *pinned*. The list of pinned weekly releases can be found online `here <https://github.com/airnandez/sw-lsst-eu/issues/3>`_.
+Even if older than 12 weeks, specific weekly releases identified by the community as necessary for reproducibility purposes are also kept online. We call them *pinned releases*. The list of pinned weekly releases can be found `here <https://github.com/airnandez/sw-lsst-eu/issues/3>`_.
 
 .. warning::
 
