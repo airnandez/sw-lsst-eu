@@ -22,71 +22,91 @@ The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There
     |   |   |-- v15.0
     |   |   |-- v16.0
     |   |   |-- v17.0
-    |   |   |-- w_2018_45
-    |   |   |-- w_2018_46
-    |   |   |-- w_2018_47
-    |   |   |-- w_2018_48
-    |   |   |-- w_2018_49
-    |   |   |-- w_2018_50
-    |   |   |-- w_2018_51
-    |   |   |-- w_2018_52
-    |   |   |-- w_2019_01
-    |   |   |-- w_2019_02
-    |   |   |-- w_2019_03
-    |   |   |-- w_2019_04
-    |   |   |-- w_2019_05
-    |   |   |-- w_2019_06
-    |   |   |-- w_2019_07
-    |   |   |-- w_2019_08
-    |   |   `-- w_2019_09
+    |   |   |-- v18.0.0
+    |   |   |-- v18.1.0
+    |   |   |-- w_2018_31
+    |   |   |-- w_2018_39
+    |   |   |-- w_2019_10
+    |   |   |-- w_2019_19
+    |   |   |-- w_2019_23
+    |   |   |-- w_2019_31
+    |   |   |-- w_2019_32
+    |   |   |-- w_2019_33
+    |   |   |-- w_2019_34
+    |   |   |-- w_2019_35
+    |   |   |-- w_2019_36
+    |   |   |-- w_2019_37
+    |   |   |-- w_2019_38
+    |   |   |-- w_2019_40
+    |   |   |-- w_2019_41
+    |   |   |-- w_2019_42
+    |   |   |-- w_2019_43
+    |   |   |-- w_2019_44
+    |   |   |-- w_2019_45
+    |   |   |-- w_2019_46
+    |   |   `-- w_2019_47
     |   `-- lsst_sims
-    |       |-- sims_w_2019_01
-    |       |-- sims_w_2019_02
-    |       |-- sims_w_2019_03
-    |       |-- sims_w_2019_04
-    |       |-- sims_w_2019_05
-    |       |-- sims_w_2019_06
-    |       |-- sims_w_2019_08
-    |       `-- sims_w_2019_09
+    |       |-- sims_w_2019_10
+    |       |-- sims_w_2019_19
+    |       |-- sims_w_2019_23
+    |       |-- sims_w_2019_31
+    |       |-- sims_w_2019_32
+    |       |-- sims_w_2019_33
+    |       |-- sims_w_2019_34
+    |       |-- sims_w_2019_35
+    |       |-- sims_w_2019_36
+    |       |-- sims_w_2019_37
+    |       |-- sims_w_2019_38
+    |       |-- sims_w_2019_40
+    |       |-- sims_w_2019_42
+    |       `-- sims_w_2019_44
     `-- linux-x86_64
         |-- lsst_distrib
         |   |-- v15.0
         |   |-- v16.0
         |   |-- v17.0
-        |   |-- w_2018_45
-        |   |-- w_2018_46
-        |   |-- w_2018_47
-        |   |-- w_2018_48
-        |   |-- w_2018_49
-        |   |-- w_2018_50
-        |   |-- w_2018_51
-        |   |-- w_2018_52
-        |   |-- w_2019_01
-        |   |-- w_2019_02
-        |   |-- w_2019_03
-        |   |-- w_2019_04
-        |   |-- w_2019_05
-        |   |-- w_2019_06
-        |   |-- w_2019_07
-        |   |-- w_2019_08
-        |   `-- w_2019_09
+        |   |-- v18.0.0
+        |   |-- v18.1.0
+        |   |-- w_2018_31
+        |   |-- w_2018_39
+        |   |-- w_2019_10
+        |   |-- w_2019_19
+        |   |-- w_2019_23
+        |   |-- w_2019_31
+        |   |-- w_2019_32
+        |   |-- w_2019_33
+        |   |-- w_2019_34
+        |   |-- w_2019_35
+        |   |-- w_2019_36
+        |   |-- w_2019_37
+        |   |-- w_2019_38
+        |   |-- w_2019_40
+        |   |-- w_2019_41
+        |   |-- w_2019_42
+        |   |-- w_2019_43
+        |   |-- w_2019_44
+        |   |-- w_2019_45
+        |   |-- w_2019_46
+        |   `-- w_2019_47
         `-- lsst_sims
             |-- sims_2_10_0
             |-- sims_2_13_1
             |-- sims_2_8_0
             |-- sims_2_9_0
-            |-- sims_w_2018_49
-            |-- sims_w_2018_50
-            |-- sims_w_2018_51
-            |-- sims_w_2018_52
-            |-- sims_w_2019_01
-            |-- sims_w_2019_02
-            |-- sims_w_2019_03
-            |-- sims_w_2019_04
-            |-- sims_w_2019_05
-            |-- sims_w_2019_06
-            |-- sims_w_2019_08
-            `-- sims_w_2019_09
+            |-- sims_w_2019_10
+            |-- sims_w_2019_19
+            |-- sims_w_2019_23
+            |-- sims_w_2019_31
+            |-- sims_w_2019_32
+            |-- sims_w_2019_33
+            |-- sims_w_2019_34
+            |-- sims_w_2019_35
+            |-- sims_w_2019_36
+            |-- sims_w_2019_37
+            |-- sims_w_2019_38
+            |-- sims_w_2019_40
+            |-- sims_w_2019_42
+            |-- sims_w_2019_44
 
 
 Names of directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_48``) or "sims_w" (e.g. ``sims_w_2018_49``).  **Stable releases** of ``lsst_distrib`` start with letter "v" (e.g. ``v17.0``) and stable releases of ``lsst_sims`` are named like ``sims_2_13_1``. ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the software is built from sources, specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
@@ -99,23 +119,39 @@ Each release of the software you will find under ``/cvmfs/sw.lsst.eu``, be it st
 
    It is likely that successive versions of the C++ compilers keep a backwards-compatible Application Binary Interface (ABI). In practice, that means that, in general, a more recent version of the C++ compiler than the one used to build the LSST software can be used.
 
-   You can find the specifics of the C++ compiler a particular release of the LSST software depends on in the file ``README.txt`` in each release's top directory.
+   You can find the specifics of the C++ compiler a particular release of the LSST software depends on in the file ``README.txt`` in each release's top directory. For instance:
+
+   .. code-block:: text
+
+      $ cat /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2019_47/README.txt
+      LSST Software
+      -------------
+
+      Product(s):          lsst_distrib
+      Tag:                 w_2019_47
+      Build time:          2019-11-24 15:54:16 UTC
+      Build platform:      CentOS Linux release 7.6.1810 (Core) Linux 3.10.0-957.1.3.el7.x86_64 #1 SMP Thu Nov 29 14:49:43 UTC 2018 x86_64 x86_64
+      Python interpreter:  Python 3.7.2
+      C++ compiler:        c++ (GCC) 8.3.1 20190311 (Red Hat 8.3.1-3)
+      Conda:               conda 4.7.10
+      Documentation:       https://sw.lsst.eu
+
 
 Basic Usage
 ===========
 
-The first step for using the LSST science pipelines is to select the release you want to use and bootstrap your environment for that specific release. For instance, to use LSST ``v17.0`` on a Linux computer do:
+The first step for using the LSST science pipelines is to select the release you want to use and bootstrap your environment for that specific release. For instance, to use LSST ``v18.1.0`` on a Linux computer do:
 
 .. code-block:: bash
 
     # Open a new terminal session using a BASH shell
-    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v17.0/loadLSST.bash
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v18.1.0/loadLSST.bash
 
 As a result of executing this command, some environmental variables are extended or initialized, such as ``PATH``, ``PYTHONPATH``, ``LD_LIBRARY_PATH`` and ``EUPS_PATH``.
 
 .. note::
 
-    Most of the recent releases of the LSST pipelines use GCC v6.3 on Linux, which is usually installed on CentOS and RedHat via the `devltoool-6 <https://www.softwarecollections.org/en/scls/rhscl/devtoolset-6/>`_ package. If that package is installed on your computer, it will be automatically detected and activated as a result of the command above.
+    Different releases of the LSST pipelines may have being built using different versions of the C++ compiler. On CentOS and RedHat Linux that compiler is usually installed on via the `devltoolset-6 <https://www.softwarecollections.org/en/scls/rhscl/devtoolset-6/>`_, `devltoolset-7 <https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/>`_ or `devltoolset-8 <https://www.softwarecollections.org/en/scls/rhscl/devtoolset-8/>`_ packages. If the required package for a specific release is already installed on your computer, it will be automatically detected and activated as a result of the command above.
 
 The LSST software uses `EUPS <https://github.com/RobertLuptonTheGood/eups>`_ for managing the set of software products which are part of a given release. EUPS allows you to select the packages you want to use in a work session. For instance, to use the command line tasks for processing CFHT images, you would do:
 
