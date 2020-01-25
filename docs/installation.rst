@@ -130,6 +130,12 @@ Install the CernVM-FS client:
     curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg
     open cvmfs-2.5.0.pkg
 
+.. warning::
+
+    The instructions above do not work on macOS 10.15 Catalina. The developers of the CernVM-FS client have released a more recent package which should work on Catalina but we have not tested it yet. You may want to test and provide us feedback.
+
+    Please visit the `download page <http://cernvm.cern.ch/portal/filesystem/downloads>`_ to download and install the package ``cvmfs-2.7.0.pkg``.
+
 
 Step 2: Configure the LSST repository
 -------------------------------------
