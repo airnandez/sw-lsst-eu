@@ -121,20 +121,24 @@ macOS
 Step 1: Install the CernVM-FS client software
 ---------------------------------------------
 
-Download and install the latest stable release of `FUSE for OS X <https://osxfuse.github.io>`_. This is a dependency of the CernVM-FS client.
+**Step 1a**: Download and install the latest stable release of `FUSE for OS X <https://osxfuse.github.io>`_. This is a dependency of the CernVM-FS client.
 
-Install the CernVM-FS client:
-
-.. code-block:: bash 
-
-    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg
-    open cvmfs-2.5.0.pkg
+**Step 1b**: Install the CernVM-FS client proper:
 
 .. warning::
 
-    The instructions above do not work on macOS 10.15 Catalina. The developers of the CernVM-FS client have released a more recent package which should work on Catalina but we have not tested it yet. You may want to test and provide us feedback.
+    The instructions below work on **macOS 10.13 or later** (i.e. High Sierra, Mojave and Catalina). If you are using an older version of macOS you may want to install an older version of the CernVM-FS client, for instance `cvmfs-2.5.0.pkg <https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg>`_.
 
-    Please visit the `download page <http://cernvm.cern.ch/portal/filesystem/downloads>`_ to download and install the package ``cvmfs-2.7.0.pkg``.
+.. code-block:: bash 
+
+    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.0/cvmfs-2.7.0.pkg
+    open cvmfs-2.7.0.pkg
+
+The last window of the install process of this package gives some instructions on how to configure the client for accessing a repository. Please ignore them as we will do the configuration in the next step.
+
+.. important::
+
+    **Please make sure you restart your computer after installing this package**. This is needed to make sure that the symbolic link ``/cvmfs`` is created and points to ``/Users/Shared/cvmfs``.
 
 
 Step 2: Configure the LSST repository
