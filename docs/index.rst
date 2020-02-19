@@ -7,7 +7,7 @@
 Get the LSST science pipelines delivered to your computer
 *********************************************************
 
-Here you will find information on how to get a binary distribution of the `Large Synoptic Survey Telescope (LSST) <https://lsst.org>`_ `science pipelines <https://pipelines.lsst.io>`_ to use on your personal computer without building and installing the software yourself.
+Here you will find information on how to get a binary distribution of the `Legacy Survey of Space and Time (LSST) <https://lsst.org>`_ `science pipelines <https://pipelines.lsst.io>`_ to use on your personal computer without building and installing the software yourself.
 
 As a user of this software distribution service, both **stable and weekly releases** of the LSST software appear as if they were locally installed on your computer. Since **new releases just appear under the local path** ``/cvmfs/sw.lsst.eu`` **without you to take any action**, you can focus on using the software, instead of on the technicalities of installing and updating it regularly.
 
