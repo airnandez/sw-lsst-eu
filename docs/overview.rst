@@ -14,7 +14,7 @@ In this section you will find information on the benefits of this mechanism, its
 Browse the Repository
 =====================
 
-You may want to **browse the current contents of this software repository** by visiting `CERN's repository monitor <http://cernvm-monitor.cern.ch/cvmfs-monitor/cb/browser/sw.lsst.eu/latest>`_ before deciding if this service is suitable for your individual needs.
+You may want to **browse the current contents of this software repository** by visiting `CERN's repository monitor <https://cvmfs-monitor-frontend.web.cern.ch/sw.lsst.eu>`_ before deciding if this service is suitable for your individual needs.
 
 ========
 Benefits
