@@ -131,8 +131,8 @@ Step 1: Install the CernVM-FS client software
 
 .. code-block:: bash 
 
-    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.0/cvmfs-2.7.0.pkg
-    open cvmfs-2.7.0.pkg
+    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.3/cvmfs-2.7.3.pkg
+    open cvmfs-2.7.3.pkg
 
 The last window of the install process of this package gives some instructions on how to configure the client for accessing a repository. Please ignore them as we will do the configuration in the next step.
 
