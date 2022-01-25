@@ -127,12 +127,12 @@ Step 1: Install the CernVM-FS client software
 
 .. warning::
 
-    The instructions below work on **macOS 10.13 or later** (i.e. High Sierra, Mojave and Catalina). If you are using an older version of macOS you may want to install an older version of the CernVM-FS client, for instance `cvmfs-2.5.0.pkg <https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg>`_.
+    The instructions below are known to work on **macOS 10.13 or later** (i.e. High Sierra, Mojave, Catalina and Big Sur). If you are using an older version of macOS you may want to install an older version of the CernVM-FS client, for instance `cvmfs-2.5.0.pkg <https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg>`_.
 
 .. code-block:: bash 
 
-    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.7.3/cvmfs-2.7.3.pkg
-    open cvmfs-2.7.3.pkg
+    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.9.0/cvmfs-2.9.0.pkg
+    open cvmfs-2.9.0.pkg
 
 The last window of the install process of this package gives some instructions on how to configure the client for accessing a repository. Please ignore them as we will do the configuration in the next step.
 
@@ -191,7 +191,9 @@ In the previous steps you installed the CernVM-FS client software and configured
 
     ls /cvmfs/sw.lsst.eu
 
-If you can see the contents of that directory your computer is correctly configured and you are ready to start using the LSST software. See :ref:`usage` for details.
+If you see the contents of that directory your computer is correctly configured and you are ready to start using the LSST software. See :ref:`usage` for details.
+
+You may want to check that in your computer you observe the same files and directories shown by `CERN's repository browser <https://cvmfs-monitor-frontend.web.cern.ch/browse/sw.lsst.eu/>`_.
 
 .. important::
 
