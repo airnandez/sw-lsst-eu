@@ -21,13 +21,13 @@ Add `CERN's RPM repository <https://cernvm.cern.ch/portal/filesystem/downloads>`
 
 .. code-block:: bash
  
-    sudo yum install -q -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
+    sudo yum install --quiet --assumeyes https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
  
 Install the CernVM-FS client:
 
 .. code-block:: bash
 
-    sudo yum install -q -y cvmfs
+    sudo yum install --quiet --assumeyes cvmfs
  
 .. hint::
    **Manual installation on CentOS**: If you prefer not to add CERN's package repository to your computer or to choose a specific version of the software, you can directly download the desired version of the relevant package from the `CERN package repository <https://cernvm.cern.ch/portal/filesystem/downloads>`_ and manually install it using ``yum``.
