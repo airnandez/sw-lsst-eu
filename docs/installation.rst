@@ -123,16 +123,20 @@ Step 1: Install the CernVM-FS client software
 
 **Step 1a**: Download and install the latest stable release of `FUSE for OS X <https://osxfuse.github.io>`_. This is a dependency of the CernVM-FS client.
 
+.. important::
+
+    In recent versions of macOS it is necessary to enable kernel extension for FUSE for OS X to work. At the end of the installation of FUSE for OS X you will be guided on how to modify the security settings of your computer to allow kernel extensions. This process implies starting your computing in Recovery mode and modify some settings in Start Security Utility. You will then need to reboot your computer in normal mode and explicitely allow this extension. This is a one time process.
+
 **Step 1b**: Install the CernVM-FS client proper:
 
 .. warning::
 
-    The instructions below are known to work on **macOS 10.13 or later** (i.e. High Sierra, Mojave, Catalina and Big Sur). If you are using an older version of macOS you may want to install an older version of the CernVM-FS client, for instance `cvmfs-2.5.0.pkg <https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg>`_.
+    The instructions below are known to work on **macOS 10.13 or later** (i.e. High Sierra, Mojave, Catalina, Big Sur and Monterey). If you are using an older version of macOS you may want to install an older version of the CernVM-FS client, for instance `cvmfs-2.5.0.pkg <https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg>`_.
 
 .. code-block:: bash 
 
-    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.9.0/cvmfs-2.9.0.pkg
-    open cvmfs-2.9.0.pkg
+    curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.9.4/cvmfs-2.9.4.pkg
+    open cvmfs-2.9.4.pkg
 
 The last window of the install process of this package gives some instructions on how to configure the client for accessing a repository. Please ignore them as we will do the configuration in the next step.
 
