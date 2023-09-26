@@ -11,147 +11,111 @@ In this section you will find information on how to use the online LSST software
 Repository Layout
 =================
 
-The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There you will find a sub-directory per supported platform (i.e. ``darwin-x86_64``, ``linux-x86_64``), a subdirectory for each distribution (e.g. ``lsst_distrib``, ``lsst_sims``) and a subdirectory for each available release (e.g. ``v17.0``, ``w_2018_48``). It looks like:
+The namespace under ``/cvmfs/sw.lsst.eu`` is meant to be self-explanatory. There you will find a sub-directory per supported platform (i.e. ``darwin-x86_64``, ``darwin-arm64``, ``linux-x86_64``, etc.), a subdirectory for each distribution (e.g. ``lsst_distrib``, ``lsst_sims``).
+The repository looks like:
 
 .. code-block:: bash
 
-    $ tree -L 3 /cvmfs/sw.lsst.eu
+    $ tree -L 2 -F /cvmfs/sw.lsst.eu
     /cvmfs/sw.lsst.eu
-    |-- darwin-x86_64
-    |   |-- lsst_distrib
-    |   |   |-- v15.0
-    |   |   |-- v16.0
-    |   |   |-- v17.0
-    |   |   |-- v18.0.0
-    |   |   |-- v18.1.0
-    |   |   |-- w_2018_31
-    |   |   |-- w_2018_39
-    |   |   |-- w_2019_10
-    |   |   |-- w_2019_19
-    |   |   |-- w_2019_23
-    |   |   |-- w_2019_31
-    |   |   |-- w_2019_32
-    |   |   |-- w_2019_33
-    |   |   |-- w_2019_34
-    |   |   |-- w_2019_35
-    |   |   |-- w_2019_36
-    |   |   |-- w_2019_37
-    |   |   |-- w_2019_38
-    |   |   |-- w_2019_40
-    |   |   |-- w_2019_41
-    |   |   |-- w_2019_42
-    |   |   |-- w_2019_43
-    |   |   |-- w_2019_44
-    |   |   |-- w_2019_45
-    |   |   |-- w_2019_46
-    |   |   `-- w_2019_47
-    |   `-- lsst_sims
-    |       |-- sims_w_2019_10
-    |       |-- sims_w_2019_19
-    |       |-- sims_w_2019_23
-    |       |-- sims_w_2019_31
-    |       |-- sims_w_2019_32
-    |       |-- sims_w_2019_33
-    |       |-- sims_w_2019_34
-    |       |-- sims_w_2019_35
-    |       |-- sims_w_2019_36
-    |       |-- sims_w_2019_37
-    |       |-- sims_w_2019_38
-    |       |-- sims_w_2019_40
-    |       |-- sims_w_2019_42
-    |       `-- sims_w_2019_44
-    `-- linux-x86_64
-        |-- lsst_distrib
-        |   |-- v15.0
-        |   |-- v16.0
-        |   |-- v17.0
-        |   |-- v18.0.0
-        |   |-- v18.1.0
-        |   |-- w_2018_31
-        |   |-- w_2018_39
-        |   |-- w_2019_10
-        |   |-- w_2019_19
-        |   |-- w_2019_23
-        |   |-- w_2019_31
-        |   |-- w_2019_32
-        |   |-- w_2019_33
-        |   |-- w_2019_34
-        |   |-- w_2019_35
-        |   |-- w_2019_36
-        |   |-- w_2019_37
-        |   |-- w_2019_38
-        |   |-- w_2019_40
-        |   |-- w_2019_41
-        |   |-- w_2019_42
-        |   |-- w_2019_43
-        |   |-- w_2019_44
-        |   |-- w_2019_45
-        |   |-- w_2019_46
-        |   `-- w_2019_47
-        `-- lsst_sims
-            |-- sims_2_10_0
-            |-- sims_2_13_1
-            |-- sims_2_8_0
-            |-- sims_2_9_0
-            |-- sims_w_2019_10
-            |-- sims_w_2019_19
-            |-- sims_w_2019_23
-            |-- sims_w_2019_31
-            |-- sims_w_2019_32
-            |-- sims_w_2019_33
-            |-- sims_w_2019_34
-            |-- sims_w_2019_35
-            |-- sims_w_2019_36
-            |-- sims_w_2019_37
-            |-- sims_w_2019_38
-            |-- sims_w_2019_40
-            |-- sims_w_2019_42
-            |-- sims_w_2019_44
+    ├── containers/
+    │   └── apptainer/
+    ├── darwin-arm64/
+    │   └── lsst_distrib/
+    ├── darwin-x86_64/
+    │   ├── lsst_distrib/
+    │   └── lsst_sims/
+    └── linux-x86_64/
+        ├── apptainer/
+        ├── lsst_distrib/
+        ├── lsst_sims/
+        └── panda_env/
 
+The LSST Science Pipelines are distributed by this mechanism in two forms: as a ``conda`` based environment (for both Linux and macOS) and as an `Apptainer <https://apptainer.org/docs/user/latest/>`_ container image (for Linux only).
+The ``conda`` based distribution is located under the subdirectory ``lsst_distrib`` of each platform directory:
 
-Names of directories where **weekly releases** are located are named starting with letter "w" (e.g. ``w_2018_48``) or "sims_w" (e.g. ``sims_w_2018_49``).  **Stable releases** of ``lsst_distrib`` start with letter "v" (e.g. ``v17.0``) and stable releases of ``lsst_sims`` are named like ``sims_2_13_1``. ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the software is built from sources, specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
+.. code-block:: bash
+
+    $ tree -L 1 -F /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib
+    /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib
+    ...
+    ├── v24.0.0/
+    ├── v24.1.0/
+    ├── v25.0.0/
+    ├── v25.0.1/
+    ...
+    ├── w_2023_35/
+    ├── w_2023_36/
+    ├── w_2023_37/
+    └── w_2023_38/
+
+and the Apptainer-based distribution is located under ``/cvmfs/sw.lsst.eu/containers/apptainer``:
+
+.. code-block:: bash
+
+    $ tree -L 1 -F /cvmfs/sw.lsst.eu/containers/apptainer/lsst_distrib/
+    /cvmfs/sw.lsst.eu/containers/apptainer/lsst_distrib/
+    ...
+    ├── v24.0.0.sif
+    ├── v24.1.0.sif
+    ├── v25.0.0.sif
+    ├── v25.0.1.sif
+    ...
+    ├── w_2023_35.sif
+    ├── w_2023_36.sif
+    ├── w_2023_37.sif
+    └── w_2023_38.sif
+
+Files or directories which contain **weekly releases** start with letter "w" (e.g. ``w_2023_38``) or "sims_w" (e.g. ``sims_w_2018_49``).  **Stable releases** of ``lsst_distrib`` start with letter "v" (e.g. ``v25.0.1``) and stable releases of ``lsst_sims`` are named like ``sims_2_13_1``. ``lsst_distrib`` is the name of the LSST distribution, that is, a coherent set of packages that together form the LSST science pipelines. Each release of the software is built from sources, specifically for delivery via CernVM-FS according to the `official instructions <https://pipelines.lsst.io>`_.
 
 Each release of the software you will find under ``/cvmfs/sw.lsst.eu``, be it stable or weekly, is mostly self contained: it includes its own EUPS (see below), its own **Python 3** distribution (typically `miniconda <https://www.anaconda.com/download>`_) and its own set of external packages that specific release depends on (e.g. ``numpy``, ``cfitsio``, etc.). In particular, since the Python distribution installed with each release includes its own interpreter, each release is independent and configured so **it does not conflict with other Python interpreter** you may have already installed on your computer.
 
 .. important::
 
-   The LSST science pipelines depend on the runtime libraries of the C++ compiler. **You must have the appropriate version of the C++ compiler installed on your computer** for the LSST software to execute properly, since that compiler is not included in ``/cvmfs/sw.lsst.eu``.
-
-   It is likely that successive versions of the C++ compilers keep a backwards-compatible Application Binary Interface (ABI). In practice, that means that, in general, a more recent version of the C++ compiler than the one used to build the LSST software can be used.
-
-   You can find the specifics of the C++ compiler a particular release of the LSST software depends on in the file ``README.txt`` in each release's top directory. For instance:
+   The LSST science pipelines depend, among other things, on the Python interpreter and runtime libraries of the C++ compiler, which are both included in recent stable and weekly releases. You can find the details of the Python interpreter and C++ compiler a particular
+   release of the LSST software was built with in the file ``README.txt`` in each release's top directory. For instance:
 
    .. code-block:: text
 
-      $ cat /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2019_47/README.txt
-      LSST Software
-      -------------
+        $ cat /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2023_28/README.txt
+        LSST Software
+        -------------
 
-      Product(s):          lsst_distrib
-      Tag:                 w_2019_47
-      Build time:          2019-11-24 15:54:16 UTC
-      Build platform:      CentOS Linux release 7.6.1810 (Core) Linux 3.10.0-957.1.3.el7.x86_64 #1 SMP Thu Nov 29 14:49:43 UTC 2018 x86_64 x86_64
-      Python interpreter:  Python 3.7.2
-      C++ compiler:        c++ (GCC) 8.3.1 20190311 (Red Hat 8.3.1-3)
-      Conda:               conda 4.7.10
-      Documentation:       https://sw.lsst.eu
+        Product(s):          lsst_distrib
+        Tag:                 w_2023_28
+        Build time:          2023-07-13 19:05:00 UTC
+        Build platform:      CentOS Linux release 7.9.2009 (Core) Linux 3.10.0-1127.19.1.el7.x86_64 #1 SMP Tue Aug 25 17:23:54 UTC 2020 x86_64 x86_64
+        conda:               conda 23.1.0
+        mamba:               mamba 1.4.2
+        conda environment:   lsst-scipipe-7.0.0-exact
+        Python interpreter:  Python 3.11.4
+        C++ compiler:        c++ (conda-forge gcc 11.4.0-0) 11.4.0
+        Documentation:       https://sw.lsst.eu
 
 
-Basic Usage
-===========
+Basic Usage of the conda-based Distribution
+===========================================
 
-The first step for using the LSST science pipelines is to select the release you want to use and bootstrap your environment for that specific release. For instance, to use LSST ``v18.1.0`` on a Linux computer do:
+The first step for using the LSST science pipelines is to select the release you want to use and bootstrap your environment for that specific release. For instance, to use LSST ``v25.0.1`` on a Linux computer do:
 
 .. code-block:: bash
 
     # Open a new terminal session using a BASH shell
-    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v18.1.0/loadLSST.bash
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v25.0.1/loadLSST.bash
+    $ setup lsst_distrib
 
-As a result of executing this command, some environmental variables are extended or initialized, such as ``PATH``, ``PYTHONPATH``, ``LD_LIBRARY_PATH`` and ``EUPS_PATH``.
+As a result of executing these commands, some environmental variables are extended or initialized, such as ``PATH``, ``PYTHONPATH``, ``LD_LIBRARY_PATH`` and ``EUPS_PATH``. In particular, your ``PATH`` is extended to find the Python interpreter and other commands included in the pipelines, for instance:
 
-.. note::
+.. code-block:: bash
 
-    Different releases of the LSST pipelines may have being built using different versions of the C++ compiler. On CentOS and RedHat Linux that compiler is usually installed on via the `devltoolset-6 <https://www.softwarecollections.org/en/scls/rhscl/devtoolset-6/>`_, `devltoolset-7 <https://www.softwarecollections.org/en/scls/rhscl/devtoolset-7/>`_ or `devltoolset-8 <https://www.softwarecollections.org/en/scls/rhscl/devtoolset-8/>`_ packages. If the required package for a specific release is already installed on your computer, it will be automatically detected and activated as a result of the command above.
+    $ which python
+    /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/v25.0.1/conda/envs/lsst-scipipe-5.0.1-exact/bin/python
+
+    $ pipetask --help
+    Usage: pipetask [OPTIONS] COMMAND [ARGS]...
+    ...
+
+and your ``PYTHONPATH`` is configured to find the included Python packages you may need in your scripts (e.g. ``import lsst.daf.butler``).
 
 The LSST software uses `EUPS <https://github.com/RobertLuptonTheGood/eups>`_ for managing the set of software products which are part of a given release. EUPS allows you to select the packages you want to use in a work session. For instance, to use the command line tasks for processing CFHT images, you would do:
 
@@ -160,90 +124,67 @@ The LSST software uses `EUPS <https://github.com/RobertLuptonTheGood/eups>`_ for
     $ setup obs_cfht
     $ setup pipe_tasks
 
-After these steps, your working environment is modified so that you can use the command line tasks (e.g. ``ingestImages.py``, ``processCcd.py``, etc.) and import LSST-specific modules in your own Python programs (e.g. ``import lsst.daf.persistence``):
+If later on you need to work with a different release, say weekly ``w_2023_20``, **you must create a new terminal session** and configure your environment for the that specific release. For instance:
 
 .. code-block:: bash
 
-    $ processCcd.py --help
-    usage: processCcd.py input [options]
+    # In a NEW terminal session with BASH shell.
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2023_20/loadLSST.bash
+    $ setup lsstt_distrib
 
-    positional arguments:
-      input                 path to input data repository, relative to
-                            $PIPE_INPUT_ROOT
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --calib RAWCALIB      path to input calibration repository, relative to
-                            $PIPE_CALIB_ROOT
-    ...
-
-
-If later on you need to work with a different release, say weekly ``w_2018_48``, **you must create a new terminal session** and configure your environment for the that specific release. For instance:
-
-.. code-block:: bash
-
-    # In a new terminal session with BASH shell
-    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2018_48/loadLSST.bash
-
-    # From this point on, your environment is set up to use release w_2018_48 of lsst_distrib
+    # From this point on, your environment in this shell is set up to use release
+    # w_2023_20 of lsst_distrib.
 
 At this point you may want to `run the LSST demo <https://pipelines.lsst.io/install/demo.html#download-the-demo-project>`_ and read the tutorials on `how to use the LSST Science Pipelines <https://pipelines.lsst.io/getting-started/index.html#getting-started-tutorials>`_.
+
+
+Basic Usage of the Apptainer-based Distribution
+===============================================
+
+To get help on how to use an Apptainer image use the command ``apptainer run-help`` with the available ``.sif`` file of the release of interest, for instance:
+
+.. code-block:: bash
+
+    $ apptainer run-help /cvmfs/sw.lsst.eu/containers/apptainer/lsst_distrib/w_2023_38.sif
+
+Within the container, the LSST software is installed under ``/opt/lsst/software/stack``.
+
+If on your Linux-based execution host Apptainer is not installed, you can use one of the versions available under ``/cvmfs/sw.lsst.eu/linux-x86_64/apptainer``. For instance, to use Apptainer v1.1.9 you can do:
+
+.. code-block:: bash
+
+    # Extend PATH to include the 'apptainer' executable included in Apptainer v1.1.9
+    $ export PATH=/cvmfs/sw.lsst.eu/linux-x86_64/apptainer/v1.1.9/bin:${PATH}
+
+    $ which apptainer
+    /cvmfs/sw.lsst.eu/linux-x86_64/apptainer/v1.1.9/bin/apptainer
 
 
 Advanced Usage
 ==============
 
-As presented above, each installed release includes its own miniconda Python distribution with a strict set of packages the LSST science pipelines depend on. For your convenience, a set of packages is added without modifying the dependencies of the LSST software.
-
-You can determine which version of the Python interpreter is used for a given release of the LSST stack and obtain the list of installed packages via the ``conda`` command. For instance, when using ``w_2018_19`` on macOS you get:
+As presented above, each installed release includes its own Python distribution with a set of software packages the LSST Science Pipelines depend on. For your convenience, an extended conda-based environment is also available which includes
+a set of convenient packages not included in the original distribution of the LSST Science Pipelines. To use the extended environment do:
 
 .. code-block:: bash
 
-    $ source /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_19/loadLSST.bash
+    # Open a new terminal session using a BASH shell (note the '-ext' suffix)
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2023_28/loadLSST-ext.bash
+    $ setup lsst_distrib
 
-    $ which python
-    /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_19/python/miniconda3-4.3.21/bin/python
+Note that the set of additional packages is added without upgrading or downgrading the packages the LSST Software Pipelines depend on. You can retrieve the exact list of packages included in a given conda-environment via the command:
 
-    $ python --version
-    Python 3.6.2 :: Continuum Analytics, Inc.
+.. code-block:: bash
 
     $ conda list
-    # packages in environment at /cvmfs/sw.lsst.eu/darwin-x86_64/lsst_distrib/w_2018_19/python/miniconda3-4.3.21:
-    #
-    appnope                   0.1.0            py36hf537a9a_0  
-    asn1crypto                0.22.0                   py36_0  
-    astropy                   2.0.1               np113py36_0  
-    ...
-    yaml                      0.1.6                         0  
-    zeromq                    4.2.5                h378b8a2_0  
-    zlib                      1.2.8                         3  
 
-Among the packages deliberately added to each installed release, there are the ones necessary to use the `Jupyter <http://jupyter.org>`_ interactive computing environment with Python 3. You can therefore launch Jupyter via one of the commands:
-
-.. code-block:: bash
-
-    $ jupyter nootebook
-
-or
-
-.. code-block:: bash
-
-    $ jupyter lab
-
-and you will get an LSST-enabled notebook environment ready to use.
+Detailed help on using the ``conda`` command is available in the `conda command reference <https://docs.conda.io/projects/conda/en/latest/commands/index.html>`_.
 
 In a similar way to ``conda``, you can retrieve the list of EUPS-managed products included in a bootstraped release of the LSST software via the command:
 
 .. code-block:: bash
 
     $ eups list --name
-    afw       
-    apr       
-    apr_util  
-    ...
-    wcslib    
-    ws4py     
-    xpa       
 
 Then you can activate one of those products, for example:
 
@@ -257,60 +198,63 @@ More information about EUPS can be found in this `EUPS tutorial <https://develop
 More Advanced Usage
 ===================
 
-Since ``/cvmfs/sw.lsst.eu`` is a read-only file system you cannot modify the packages installed there in. However, you can customize the set of EUPS packages you want to use in a work session.
+Since ``/cvmfs/sw.lsst.eu`` is a read-only file system you cannot modify the packages installed there in. However, you can customize the set of EUPS packages you want to use in a work session, for instance, to include a modified package in your ``$HOME``.
 
-Let's suppose that you want to use your own version of one of the products included in the stack, namely ``obs_cfht``. You would like to modify that product to satisfy your specific needs. Below you will find how you would proceed to do that. Note that there is nothing special with this product: this procedure should work with any other package.
+Let's suppose that you want to use your own version of one of the products included in the pileines, namely ``obs_cfht``. You would like to modify that product to satisfy your specific needs.
+Below you will find how you would proceed to do that. Note that there is nothing special with this product: this procedure should work with any other package.
 
 .. code-block:: bash
 
-    # Here we use a weekly release of the LSST pipelines, namely the one tagged 'w_2018_25'
-    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2018_25/loadLSST.bash
+    # Here we use a weekly release of the LSST pipelines, namely the one tagged 'w_2023_28'.
+    $ source /cvmfs/sw.lsst.eu/linux-x86_64/lsst_distrib/w_2023_28/loadLSST.bash
 
-    # EUPS setup the current version of the product 'obs_cfht' included in this release of the stack
-    # and verify that the set up version is the one included in the stack
+    # EUPS setup the current version of the product 'obs_cfht' included in this release
+    # of the stack and verify that the active version is the one included in the stack.
     $ setup obs_cfht
     $ eups list obs_cfht
-       15.0-5-g891f9b3  w_latest w_2018_25 current setup
+    g98ea1558ea+2411fcc24f 	w_2023_28 current w_latest setup
 
-    # Clone the product you want to customize under your $HOME and modify it to suit your needs
+    # Clone the product you want to customize under your $HOME and modify it to suit your needs.
     $ git clone https://github.com/lsst/obs_cfht $HOME/obs_cfht
     $ cd $HOME/obs_cfht
 
-    # Build it
+    # Make your modifications and build it
     $ scons opt=3
 
     # Declare version 'my_private_obs_cfht' of product 'obs_cfht' located under '$HOME/obs_cfht'
-    # and verify that now EUPS knows about your private version
+    # and verify that now EUPS knows about your private version.
     $ eups declare -r $HOME/obs_cfht  obs_cfht  my_private_obs_cfht
     $ eups list obs_cfht
-       15.0-5-g891f9b3  w_latest w_2018_48 current setup
-       my_private_obs_cfht 
+      g98ea1558ea+2411fcc24f 	w_2023_28 current w_latest setup
+      my_private_obs_cfht
 
-    # In order to use your private version you need to set it up first
+    # In order to use your private version you need to set it up first.
     $ setup obs_cfht my_private_obs_cfht
     $ eups list obs_cfht
-       15.0-5-g891f9b3  w_latest w_2018_25 current
-       my_private_obs_cfht  setup
+      g98ea1558ea+2411fcc24f 	w_2023_28 current w_latest
+      my_private_obs_cfht 	setup
 
-    # From now on, when you use the product 'obs_cfht' you will be using the one
-    # in your $HOME
 
-    # When done, unsetup your private version
+    # From this point on, when you use the product 'obs_cfht' you will be using
+    # the one in your $HOME, that you can modify.
+
+
+    # When done, unsetup your private version.
     $ setup -u obs_cfht my_private_obs_cfht
     $ eups list obs_cfht
-       15.0-5-g891f9b3  w_latest w_2018_25 current
-       my_private_obs_cfht 
+       g98ea1558ea+2411fcc24f 	w_2023_28 current w_latest
+       my_private_obs_cfht
 
-    # When you no longer need your private version tell EUPS to forget it
+    # When you no longer need your private version tell EUPS to forget it.
     $ eups undeclare obs_cfht my_private_obs_cfht
     $ eups list obs_cfht
-       15.0-5-g891f9b3  w_latest w_2018_25 current
+       g98ea1558ea+2411fcc24f 	w_2023_28 current w_latest
 
-    # If you setup 'obs_cfht' again, it is the one included in the LSST stack that will be used
-    # and not your private one
+    # If you setup 'obs_cfht' again, it is the one included in the LSST stack that will
+    # be used and not your private one.
     $ setup obs_cfht
     $ eups list obs_cfht
-       15.0-5-g891f9b3  w_latest w_2018_25 current setup
+       g98ea1558ea+2411fcc24f 	w_2023_28 current w_latest setup
 
 
 Using both lsst_distrib and lsst_sims in the same work session
@@ -335,8 +279,6 @@ Now, to check that both **lsst_distrib** and **lsst_sims** are (EUPS) setup do:
 
     $ eups list --name -s | grep -e lsst_sims -e lsst_distrib
     lsst_distrib
-    lsst_sims 
+    lsst_sims
 
 The same procedure works on macOS, but you need to use the appropriate top directory, that is ``/cvmfs/sw.lsst.eu/darwin-x86_64`` instead of ``/cvmfs/sw.lsst.eu/linux-x86_64``.
-
-
