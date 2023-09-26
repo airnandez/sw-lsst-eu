@@ -1,19 +1,34 @@
-image: gitlab-registry.in2p3.fr/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest
-makedoc:
-  script:
-  # generate html doc (readthedocs like)
-  - mkdir -p /builds/$CI_PROJECT_NAMESPACE/htmloutput
-  - rm -r /builds/$CI_PROJECT_NAMESPACE/htmloutput/* || true
+variables:
+  SPHINX_IMAGE: sphinxdoc/sphinx:7.1.2
 
-  - sphinx-build -c /tmp/docs/ -b html /builds/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/docs/ /builds/$CI_PROJECT_NAMESPACE/htmloutput
-  # overwrite theme.css after build
-  - cp /tmp/css/theme.css /builds/$CI_PROJECT_NAMESPACE/htmloutput/_static/css/
-  # check branch name and define output folder
-  - if [ "$CI_BUILD_REF_NAME" == "master" ]; then output_folder=""; else output_folder="preview/$CI_BUILD_REF_NAME/"; fi
-  - echo "Build for $CI_BUILD_REF_NAME" # deprecated in gitlab >= 9.0 => CI_COMMIT_REF_NAME
-  #- echo $WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER$output_folder
-  # create preview folder (if not master)
-  - if [ "$CI_BUILD_REF_NAME" != "master" ]; then sshpass -p $RSYNC_PASSWORD sftp -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no $RSYNC_USER@$WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER <<< $'mkdir preview'; fi
-  - if [ "$CI_BUILD_REF_NAME" != "master" ]; then sshpass -p $RSYNC_PASSWORD sftp -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no $RSYNC_USER@$WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER/preview <<< $'mkdir $CI_BUILD_REF_NAME'; fi
-  # deploy on lsst-sw.in2p3.fr
-  - rsync --rsh="sshpass -p $RSYNC_PASSWORD ssh -l $RSYNC_USER -o StrictHostKeyChecking=no" --recursive --force --delete /builds/$CI_PROJECT_NAMESPACE/htmloutput/ $WEB_SERVER_URL:$WEB_SERVER_ROOT_FOLDER$output_folder
+build_and_deploy:
+  image:
+    name: $SPHINX_IMAGE
+    entrypoint: ['']
+  before_script:
+    # Install additional dependencies into the base image.
+    - pip install sphinx-rtd-theme
+    - apt-get update --quiet=2
+    - apt-get install --quiet=2 --assume-yes rsync sshpass
+  script:
+    # Build the documentation. On success, results are stored under 'docs/_build'.
+    - sphinx-build -a -E -b html docs/source docs/_build
+
+    # Deploy to the web server, either for previewing or for publication.
+    - DEPLOY_DIR=$WEB_SERVER_ROOT_DIR
+    - PREVIEW_TOP_DIR=$DEPLOY_DIR/preview/$GITLAB_USER_LOGIN
+    - |
+      if [ "$CI_COMMIT_REF_NAME" != "main" ]; then
+        DEPLOY_DIR=$PREVIEW_TOP_DIR/$CI_COMMIT_REF_NAME;
+      fi
+
+    # Deploy the contents of 'docs/_build/' to the web server's deploy directory.
+    - SSH_LOGIN_COMMAND="ssh -F /dev/null -o PreferredAuthentications=password -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa -l $WEB_SERVER_USER"
+    - sshpass -e $SSH_LOGIN_COMMAND $WEB_SERVER_HOSTNAME "mkdir -p $DEPLOY_DIR"
+    - rsync --recursive --force --delete --rsh="sshpass -e $SSH_LOGIN_COMMAND" docs/_build/ $WEB_SERVER_HOSTNAME:$DEPLOY_DIR
+
+    # When deploying in production, remove all previews for this developer.
+    - |
+      if [ "$CI_COMMIT_REF_NAME" == "main" ]; then
+        sshpass -e $SSH_LOGIN_COMMAND $WEB_SERVER_HOSTNAME "rm -rf $PREVIEW_TOP_DIR";
+      fi
