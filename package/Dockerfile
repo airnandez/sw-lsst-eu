@@ -20,7 +20,7 @@ RUN useradd --create-home --uid 1000 --user-group --home-dir /home/${username} $
 # Add files needed to build the packages
 #
 WORKDIR /home/${username}
-ADD ["buildLinuxPkg.sh", "version.sh", "./"]
+ADD ["package-for-linux.sh", "version.sh", "./"]
 ADD ["etc/", "./etc/"]
 
 ENTRYPOINT /home/${username}/buildLinuxPkg.sh

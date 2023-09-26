@@ -1,13 +1,16 @@
-# Cloud-based delivery of the LSST science pipelines software
+# Automatic delivery of the LSST Science Pipelines to your personal computer
 
 ## Overview
-This repository contains documentation and tools on how to get the [Large Synoptic Survey Telescope (LSST) science pipelines](https://pipelines.lsst.io) software delivered to your personal computer on demand.
+This repository contains tools to package the necessary client-side software for
+automatically receiving the [Large Synoptic Survey Telescope (LSST) science pipelines](https://pipelines.lsst.io)
+on your personal computer by using CERN's [CernVM file system](https://cvmfs.readthedocs.io/).
 
-All the details available at [https://sw.lsst.eu](https://sw.lsst.eu).
+It also contains the sources of the end user documentation site which is available at
+[https://sw.lsst.eu](https://sw.lsst.eu).
 
 ## License
 
-Copyright 2018 Fabio Hernandez
+Copyright 2017-2023 CC-IN2P3
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

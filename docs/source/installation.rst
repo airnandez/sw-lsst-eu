@@ -20,15 +20,15 @@ Step 1: Install the CernVM-FS client software
 Add `CERN's RPM repository <https://cernvm.cern.ch/portal/filesystem/downloads>`_ to your computer:
 
 .. code-block:: bash
- 
+
     sudo yum install --quiet --assumeyes https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
- 
+
 Install the CernVM-FS client:
 
 .. code-block:: bash
 
     sudo yum install --quiet --assumeyes cvmfs
- 
+
 .. hint::
    **Manual installation on CentOS**: If you prefer not to add CERN's package repository to your computer or to choose a specific version of the software, you can directly download the desired version of the relevant package from the `CERN package repository <https://cernvm.cern.ch/portal/filesystem/downloads>`_ and manually install it using ``yum``.
 
@@ -38,24 +38,24 @@ Step 2: Configure the LSST repository
 
 Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     sudo rpm -U https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/cvmfs-config-lsst-0.7-1.noarch.rpm
 
 Complete the CernVM-FS client configuration:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     sudo /usr/bin/cvmfs_config setup
     sudo service autofs restart
 
 
-Step 3: Mount ``/cvmfs/sw.lsst.eu`` 
+Step 3: Mount ``/cvmfs/sw.lsst.eu``
 -----------------------------------
 
 On CentOS, the CernVM-FS client uses ``autofs`` for automatically mounting the file system when required and to unmount it when it is no longer needed. We recommend you configure the ``autofs`` service to start at boot time. Here is one way to do that:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     sudo systemctl enable --now autofs
 
@@ -70,7 +70,7 @@ Step 1: Install the CernVM-FS client software
 Add `CERN's APT repository <https://cernvm.cern.ch/portal/filesystem/downloads>`_ to your computer and install the CernVM-FS client:
 
 .. code-block:: bash
- 
+
     sudo apt-get install lsb-release
     curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest_all.deb
     sudo dpkg -i cvmfs-release-latest_all.deb
@@ -79,7 +79,7 @@ Add `CERN's APT repository <https://cernvm.cern.ch/portal/filesystem/downloads>`
 Install the CernVM-FS client:
 
 .. code-block:: bash
- 
+
     sudo apt-get --yes install cvmfs
 
 .. hint::
@@ -91,25 +91,25 @@ Step 2: Configure the LSST repository
 
 Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/cvmfs-config-lsst_0.7_all.deb
     sudo dpkg -i cvmfs-config-lsst_0.7_all.deb
 
 Complete the CernVM-FS client configuration:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     sudo /usr/bin/cvmfs_config setup
     sudo service autofs restart
 
 
-Step 3: Mount ``/cvmfs/sw.lsst.eu`` 
+Step 3: Mount ``/cvmfs/sw.lsst.eu``
 -----------------------------------
 
 On Ubuntu, the CernVM-FS client uses ``autofs`` for automatically mounting the file system when required and to unmount it when it is no longer needed. We recommend you configure the ``autofs`` service to start at boot time. Here is one way to do that:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     sudo systemctl enable autofs.service
 
@@ -133,7 +133,7 @@ Step 1: Install the CernVM-FS client software
 
     The instructions below are known to work on **macOS 10.13 or later** (i.e. High Sierra, Mojave, Catalina, Big Sur and Monterey). If you are using an older version of macOS you may want to install an older version of the CernVM-FS client, for instance `cvmfs-2.5.0.pkg <https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.5.0/cvmfs-2.5.0.pkg>`_.
 
-.. code-block:: bash 
+.. code-block:: bash
 
     curl -OL https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.9.4/cvmfs-2.9.4.pkg
     open cvmfs-2.9.4.pkg
@@ -150,30 +150,30 @@ Step 2: Configure the LSST repository
 
 Install the configuration package for repository ``/cvmfs/sw.lsst.eu``:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     curl -OL https://github.com/airnandez/sw-lsst-eu/releases/download/v0.7/sw-lsst-eu-cvmfs-config_0.7.pkg
     open sw-lsst-eu-cvmfs-config_0.7.pkg
 
 Complete the CernVM-FS client configuration:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     sudo /usr/local/bin/cvmfs_config setup
 
 
-Step 3: Mount ``/cvmfs/sw.lsst.eu`` 
+Step 3: Mount ``/cvmfs/sw.lsst.eu``
 -----------------------------------
 
 Create the mount directory:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     sudo mkdir -p /cvmfs/sw.lsst.eu
 
 On macOS you need to manually mount and unmount the file system when needed. To mount the file system do:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     sudo mount -t cvmfs sw.lsst.eu  /cvmfs/sw.lsst.eu
 
@@ -191,7 +191,7 @@ Testing your Installation
 
 In the previous steps you installed the CernVM-FS client software and configured it to mount the LSST repository. At this point you can check your computer is correctly configured to access ``/cvmfs/sw.lsst.eu`` by doing:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     ls /cvmfs/sw.lsst.eu
 
@@ -225,10 +225,10 @@ Troubleshooting your Installation
 In order for this distribution mechanism to work, your computer must be connected to the network, be able to establish network connections to the servers operated by CC-IN2P3 and replicated by other organisations (e.g. CERN) and download files via the HTTP protocol. To check that this is the case, please do:
 
 .. code-block:: bash
- 
+
         git clone https://github.com/airnandez/sw-lsst-eu
         cd sw-lsst-eu
-        bash check.sh
+        bash tools/check.sh
 
 You can tell everything is OK if there is no error message. Otherwise, the displayed error message may help you understanding what is wrong.
 
