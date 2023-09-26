@@ -18,7 +18,7 @@ build_and_deploy:
     - DEPLOY_DIR=$WEB_SERVER_ROOT_DIR
     - PREVIEW_TOP_DIR=$DEPLOY_DIR/preview/$GITLAB_USER_LOGIN
     - |
-      if [ "$CI_COMMIT_REF_NAME" != "main" ]; then
+      if [ "$CI_COMMIT_REF_NAME" != "master" ]; then
         DEPLOY_DIR=$PREVIEW_TOP_DIR/$CI_COMMIT_REF_NAME;
       fi
 
@@ -29,6 +29,6 @@ build_and_deploy:
 
     # When deploying in production, remove all previews for this developer.
     - |
-      if [ "$CI_COMMIT_REF_NAME" == "main" ]; then
+      if [ "$CI_COMMIT_REF_NAME" == "master" ]; then
         sshpass -e $SSH_LOGIN_COMMAND $WEB_SERVER_HOSTNAME "rm -rf $PREVIEW_TOP_DIR";
       fi
