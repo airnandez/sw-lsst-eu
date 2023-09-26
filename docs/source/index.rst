@@ -1,5 +1,5 @@
 *********************************************************
-Get the LSST science pipelines delivered to your computer
+Get the LSST Science Pipelines delivered to your computer
 *********************************************************
 
 Here you will find information on how to get a binary distribution of the `LSST Science Pipelines <https://pipelines.lsst.io>`_  of the the `Vera C. Rubin Observatory <https://rubinobservatory.org>`_ distributed to your personal computer, without building and installing the software yourself.
