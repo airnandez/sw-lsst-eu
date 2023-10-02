@@ -8,7 +8,7 @@
 
 project = 'sw.lsst.eu'
 version = 'v1.0'
-copyright = '2017-2023, IN2P3 / CNRS Computing Center'
+copyright = '2018-2023, IN2P3 / CNRS Computing Center'
 author = 'Fabio Hernandez'
 
 
