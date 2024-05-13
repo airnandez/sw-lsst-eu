@@ -6,9 +6,11 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+from datetime import datetime
+
 project = 'sw.lsst.eu'
-version = 'v1.0'
-copyright = '2018-2023, IN2P3 / CNRS Computing Center'
+version = f'Last update: {datetime.today().strftime('%Y-%m-%d')}'
+copyright = '2018-2024, IN2P3 / CNRS Computing Center'
 author = 'Fabio Hernandez'
 
 
