@@ -1,4 +1,4 @@
-SPHINX_VERSION = 7.1.2
+SPHINX_VERSION = 7.3.7
 DOCKER_IMAGE = $(shell whoami)/sphinx_rtd_theme:$(SPHINX_VERSION)
 
 all: preview
