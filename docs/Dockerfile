@@ -1,7 +1,7 @@
 #
 # Other tags available at https://hub.docker.com/r/sphinxdoc/sphinx
 #
-FROM sphinxdoc/sphinx:7.3.7
+FROM sphinxdoc/sphinx:8.1.3
 
 #
 # Install HTML theme 'sphinx_rtd_theme'.
