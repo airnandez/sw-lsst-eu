@@ -1,4 +1,4 @@
-SPHINX_VERSION = 7.3.7
+SPHINX_VERSION = 8.2.3
 DOCKER_IMAGE = $(shell whoami)/sphinx_rtd_theme:$(SPHINX_VERSION)
 
 all: preview
@@ -10,7 +10,7 @@ preview: build
 	open _build/index.html
 
 build: dockerimage
-	docker run --rm --volume $(shell pwd):/docs $(DOCKER_IMAGE) sphinx-build -a -E -b html source _build
+	docker run --rm --volume $(shell pwd):/docs $(DOCKER_IMAGE) sphinx-build --write-all --fresh-env --builder html source _build
 
 clean:
 	rm -rf _build
