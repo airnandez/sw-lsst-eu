@@ -9,8 +9,8 @@
 from datetime import datetime
 
 project = 'sw.lsst.eu'
-version = f'Last update: {datetime.today().strftime('%Y-%m-%d')}'
-copyright = '2018-2024, IN2P3 / CNRS Computing Center'
+version = f"Last update: {datetime.today().strftime('%Y-%m-%d')}"
+copyright = '2018-2026, IN2P3 / CNRS Computing Center'
 author = 'Fabio Hernandez'
 
 
@@ -30,4 +30,3 @@ html_static_path = ['_static']
 html_logo = 'images/lsst-france-logo.png'
 html_favicon = 'images/favicon.ico'
 html_show_sourcelink = False
-
