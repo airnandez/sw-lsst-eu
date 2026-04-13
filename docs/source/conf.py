@@ -9,7 +9,7 @@
 from datetime import datetime
 
 project = 'sw.lsst.eu'
-version = f'Last update: {datetime.today().strftime('%Y-%m-%d')}'
+version = f"Last update: {datetime.today().strftime('%Y-%m-%d')}"
 copyright = '2018-2026, IN2P3 / CNRS Computing Center'
 author = 'Fabio Hernandez'
 
