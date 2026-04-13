@@ -5,16 +5,25 @@ build:
     name: sphinxdoc/sphinx:8.2.3
     entrypoint: [""]
   script:
-    # Install additional dependencies into the base image and run 'sphinx' to
-    # build the documentation web site. 
+    # Update the base image. Install and run 'sphinx' to build the documentation web site. 
     # On success, results are stored under 'docs/_build/'.
-    - pip install sphinx-rtd-theme
     - apt-get update --quiet=2
-    - apt-get install --quiet=2 --assume-yes rsync sshpass
+    - pip install sphinx-rtd-theme
     - sphinx-build --write-all --fresh-env --builder html docs/source docs/_build
   artifacts:
     paths:
         - docs/_build/
+
+deploy:
+  # Deploy to Gitlab Pages only if we are building the default branch.
+  # The deployed site is accessible at: https://rubin-lsst.pages.in2p3.fr/sw.lsst.eu
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp --recursive docs/_build/. public/
+  pages: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
 
 build_and_deploy:
@@ -51,14 +60,3 @@ build_and_deploy:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
-
-deploy_to_pages:
-  # Deploy to Gitlab Pages only if we are building the 'main' branch.
-  # The deployed site is accessible at: https://rubin-lsst.pages.in2p3.fr/sw.lsst.eu
-  stage: deploy
-  script:
-    - mkdir -p public
-    - cp --recursive docs/_build/. public/
-  pages: true
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
