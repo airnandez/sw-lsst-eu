@@ -10,7 +10,7 @@ It also contains the sources of the end user documentation site which is availab
 
 ## License
 
-Copyright 2017-2023 CC-IN2P3
+Copyright 2017-2026 CC-IN2P3
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
